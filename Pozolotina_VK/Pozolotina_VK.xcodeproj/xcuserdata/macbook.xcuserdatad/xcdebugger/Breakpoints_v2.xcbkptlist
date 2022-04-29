@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B08C4EE5-F8D9-4818-9D76-428B0A14D59C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B4AAE81-6FEE-40B5-AE7A-38AB050A0E07"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pozolotina_VK/Friends/Friends.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "8"
+            endingLineNumber = "8"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6331DA4F-1334-4235-B682-D4BAD1CC1479"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pozolotina_VK/TableView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "TableView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B985A1D7-732F-4410-9DA1-56F6549F8A5B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pozolotina_VK/New Group/AllGroups.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "searchBarGroups"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "B985A1D7-732F-4410-9DA1-56F6549F8A5B - 1161e249d66e9d0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pozolotina_VK.AllGroups.searchBarGroups.getter : Swift.Optional&lt;__C.UISearchBar&gt;"
+                  moduleName = "Pozolotina_VK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/VKProg/VKmobile/Pozolotina_VK/Pozolotina_VK/New%20Group/AllGroups.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "B985A1D7-732F-4410-9DA1-56F6549F8A5B - 108013cb7314411b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pozolotina_VK.AllGroups.searchBarGroups.setter : Swift.Optional&lt;__C.UISearchBar&gt;"
+                  moduleName = "Pozolotina_VK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/VKProg/VKmobile/Pozolotina_VK/Pozolotina_VK/New%20Group/AllGroups.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "B985A1D7-732F-4410-9DA1-56F6549F8A5B - 32d2a9e1ba177808"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pozolotina_VK.AllGroups.searchBarGroups.modify : Swift.Optional&lt;__C.UISearchBar&gt;"
+                  moduleName = "Pozolotina_VK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/VKProg/VKmobile/Pozolotina_VK/Pozolotina_VK/New%20Group/AllGroups.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "B985A1D7-732F-4410-9DA1-56F6549F8A5B - a50f5440475baed7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pozolotina_VK.AllGroups.searchBarGroups.modify : Swift.Optional&lt;__C.UISearchBar&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Pozolotina_VK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/VKProg/VKmobile/Pozolotina_VK/Pozolotina_VK/New%20Group/AllGroups.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "B985A1D7-732F-4410-9DA1-56F6549F8A5B - a5406e2fb5d373e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pozolotina_VK.AllGroups.init(style: __C.UITableViewStyle) -&gt; Pozolotina_VK.AllGroups"
+                  moduleName = "Pozolotina_VK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/VKProg/VKmobile/Pozolotina_VK/Pozolotina_VK/New%20Group/AllGroups.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "B985A1D7-732F-4410-9DA1-56F6549F8A5B - e93d662b18eb86c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pozolotina_VK.AllGroups.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Pozolotina_VK.AllGroups"
+                  moduleName = "Pozolotina_VK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/VKProg/VKmobile/Pozolotina_VK/Pozolotina_VK/New%20Group/AllGroups.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "B985A1D7-732F-4410-9DA1-56F6549F8A5B - ab6da80f1531c7ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pozolotina_VK.AllGroups.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Pozolotina_VK.AllGroups&gt;"
+                  moduleName = "Pozolotina_VK"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/VKProg/VKmobile/Pozolotina_VK/Pozolotina_VK/New%20Group/AllGroups.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6494E46F-5A75-42FA-9E51-15CDCE9F6A0E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pozolotina_VK/New Group/AllGroups.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "addGroup(segue:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "56639D28-DDD9-472C-AB58-8DC788FFA20F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pozolotina_VK/New Group/AllGroups.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A6571C4-56E1-424E-B073-AD76156EBFC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pozolotina_VK/New Group/AllGroups.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "addGroup(segue:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
