@@ -7,21 +7,6 @@
 
 import UIKit
 
-extension AllGroups: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if searchText.isEmpty {
-            
-            filteredGroups = myGroups2
-        } else {
-            
-            filteredGroups = myGroups2.filter{$0.name.contains(searchText)}
-        }
-        tableView.reloadData()
-    }
-}
-
-
 class AllGroups: UITableViewController {
 
     
@@ -49,12 +34,7 @@ class AllGroups: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredGroups = myGroups
-    
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
     }
 
     // MARK: - Table view data source
@@ -148,4 +128,18 @@ class AllGroups: UITableViewController {
     }
     */
 
+}
+
+extension AllGroups: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.isEmpty {
+            
+            filteredGroups = myGroups2
+        } else {
+            
+            filteredGroups = myGroups2.filter{$0.name.contains(searchText)}
+        }
+        tableView.reloadData()
+    }
 }

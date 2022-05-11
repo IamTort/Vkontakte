@@ -641,6 +641,60 @@
             </objects>
             <point key="canvasLocation" x="4134.7826086956529" y="-180.13392857142856"/>
         </scene>
+        <!--Loading Page View Controller-->
+        <scene sceneID="nNp-Sl-s2M">
+            <objects>
+                <viewController id="Zea-nc-xbE" customClass="loadingPageViewController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="axX-0D-gkm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-oZ-lbw">
+                                <rect key="frame" x="139" y="428" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="jLk-pZ-DOZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="n2j-Cs-27B"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ku-sF-1q0">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lfw-fI-cDv"/>
+                                    <constraint firstAttribute="width" constant="40" id="zAl-KI-0Dz"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQJ-N7-AF7">
+                                <rect key="frame" x="235" y="428" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="DZ2-Ne-xSa"/>
+                                    <constraint firstAttribute="height" constant="40" id="zEh-vb-YjO"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5QO-Mo-FjQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2Ku-sF-1q0" firstAttribute="centerY" secondItem="axX-0D-gkm" secondAttribute="centerY" id="8bb-p1-3UO"/>
+                            <constraint firstItem="2Ku-sF-1q0" firstAttribute="centerX" secondItem="axX-0D-gkm" secondAttribute="centerX" id="FPD-kp-5M4"/>
+                            <constraint firstItem="2Ku-sF-1q0" firstAttribute="leading" secondItem="QcS-oZ-lbw" secondAttribute="trailing" constant="8" symbolic="YES" id="WAV-X0-7yz"/>
+                            <constraint firstItem="uQJ-N7-AF7" firstAttribute="leading" secondItem="2Ku-sF-1q0" secondAttribute="trailing" constant="8" symbolic="YES" id="bdf-p7-hUk"/>
+                            <constraint firstItem="QcS-oZ-lbw" firstAttribute="centerY" secondItem="axX-0D-gkm" secondAttribute="centerY" id="cGr-IT-BvM"/>
+                            <constraint firstItem="uQJ-N7-AF7" firstAttribute="centerY" secondItem="axX-0D-gkm" secondAttribute="centerY" id="v8z-ha-jY8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageAnim" destination="QcS-oZ-lbw" id="g6b-B2-SZm"/>
+                        <outlet property="imageAnim1" destination="2Ku-sF-1q0" id="QTh-YY-8ce"/>
+                        <outlet property="imageAnim2" destination="uQJ-N7-AF7" id="jVz-0q-hs1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uf3-Yh-bog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5217.3913043478269" y="-185.49107142857142"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="x7o-aH-grk">
             <objects>
@@ -707,13 +761,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Поиск" id="fNv-Ng-OBK">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" id="2Ak-gh-K6Q" customClass="FriendsCell" customModule="Pozolotina_VK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.5" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="95.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Ak-gh-K6Q" id="8O9-Ge-D65">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -738,6 +796,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="containerView" destination="Ojo-lL-dhI" id="16Z-7q-Owf"/>
                                     <outlet property="friendsImageView" destination="Ojo-lL-dhI" id="gmf-1q-I2y"/>
                                     <outlet property="friendsName" destination="jfu-RO-A7b" id="Nhv-kc-IPT"/>
                                     <segue destination="ePM-8v-M7Z" kind="show" identifier="checkPhoto" id="TYY-P4-kby"/>
