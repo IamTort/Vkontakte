@@ -31,12 +31,19 @@ class AllGroups: UITableViewController {
     }
     var filteredGroups = [Group]()
     
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredGroups = myGroups
-       
+        
     }
-
+    
+    
+        //обновляет страницу при добавлении группы
+    override func viewWillAppear(_ animated: Bool) {
+        filteredGroups = myGroups
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

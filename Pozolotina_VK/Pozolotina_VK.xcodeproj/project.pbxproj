@@ -19,6 +19,8 @@
 		FA3712C1281AB9A0007D9423 /* CommentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712C0281AB9A0007D9423 /* CommentTableView.swift */; };
 		FA3712C3281B05CE007D9423 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712C2281B05CE007D9423 /* CommentCell.swift */; };
 		FA3712E5281EC061007D9423 /* loadingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712E4281EC061007D9423 /* loadingPageViewController.swift */; };
+		FA3712EF282D41DF007D9423 /* swipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712EE282D41DF007D9423 /* swipeViewController.swift */; };
+		FA3712FF28366EDC007D9423 /* cloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712FE28366EDC007D9423 /* cloudViewController.swift */; };
 		FA9EB65F2804676200AC80F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB65E2804676200AC80F3 /* AppDelegate.swift */; };
 		FA9EB6612804676200AC80F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB6602804676200AC80F3 /* SceneDelegate.swift */; };
 		FA9EB6662804676200AC80F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9EB6642804676200AC80F3 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 		FA3712C0281AB9A0007D9423 /* CommentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableView.swift; sourceTree = "<group>"; };
 		FA3712C2281B05CE007D9423 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		FA3712E4281EC061007D9423 /* loadingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingPageViewController.swift; sourceTree = "<group>"; };
+		FA3712EE282D41DF007D9423 /* swipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swipeViewController.swift; sourceTree = "<group>"; };
+		FA3712FE28366EDC007D9423 /* cloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cloudViewController.swift; sourceTree = "<group>"; };
 		FA9EB65B2804676200AC80F3 /* Pozolotina_VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pozolotina_VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9EB65E2804676200AC80F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9EB6602804676200AC80F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				FA9EB6692804676200AC80F3 /* LaunchScreen.storyboard */,
 				FA9EB66C2804676200AC80F3 /* Info.plist */,
 				FA3712E4281EC061007D9423 /* loadingPageViewController.swift */,
+				FA3712FE28366EDC007D9423 /* cloudViewController.swift */,
 			);
 			path = Pozolotina_VK;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 		FAF81FF92809E8C400E74BB4 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				FA3712EE282D41DF007D9423 /* swipeViewController.swift */,
 				FADC49AC280AE51E0048E74F /* PhotoCollectionVCell.swift */,
 				FADC49AA280AE5090048E74F /* PhotoFriendsCoollectionVC.swift */,
 				FA3712AD2811DE85007D9423 /* FriendsTableVC.swift */,
@@ -279,6 +285,7 @@
 				FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */,
 				FA3712BF281AB817007D9423 /* MyCellForNews.swift in Sources */,
 				FA9EB67C2809BD6400AC80F3 /* NoMyGroupCell.swift in Sources */,
+				FA3712FF28366EDC007D9423 /* cloudViewController.swift in Sources */,
 				FA3712B628192B88007D9423 /* LikeControlForNews.swift in Sources */,
 				FADC49AD280AE51E0048E74F /* PhotoCollectionVCell.swift in Sources */,
 				FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */,
@@ -297,6 +304,7 @@
 				FAF81FFD2809E92100E74BB4 /* FriendsController.swift in Sources */,
 				FA9EB67428095E6200AC80F3 /* AllGroups.swift in Sources */,
 				FA3712C3281B05CE007D9423 /* CommentCell.swift in Sources */,
+				FA3712EF282D41DF007D9423 /* swipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

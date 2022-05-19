@@ -8,11 +8,15 @@
 import UIKit
 
 //Сделал на примере аватарок, то есть они будут выходить на большой экран, по аналогии и другие фото из Модели..
+
+private let reuseIdentifier = "Cell"
 class PhotoFriendsCoollectionVC: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     let collectionPhotos = FriendsViewController()
     
@@ -38,6 +42,19 @@ class PhotoFriendsCoollectionVC: UICollectionViewController {
     
     
     
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if segue.identifier == "slideIt",
+          let destination = segue.destination as? newViewController,
+            let cell = sender as? UICollectionViewCell,
+          let indexPath = collectionView.indexPath(for: cell){
+                 //let realname = searchList[keySelected]![indexPath.row]
+           destination.imageList.append(self.friends[indexPath.row])
+                
+       }
+    }
 }
 
 

@@ -14,11 +14,18 @@ class PhotoCell: UICollectionViewCell {
     @IBOutlet var likeControle: LikeControl!
     @IBOutlet var containerView: UIView!
     
+    
+    
     override  func awakeFromNib() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        tap.numberOfTapsRequired = 2
-        containerView.addGestureRecognizer(tap)
+        super.awakeFromNib()
+        
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+//        tap.numberOfTapsRequired = 2
+//        containerView.addGestureRecognizer(tap)
+
     }
+    
+    
     
     @objc func handleTap(_: UITapGestureRecognizer) {
         likeControle.isLike.toggle()
