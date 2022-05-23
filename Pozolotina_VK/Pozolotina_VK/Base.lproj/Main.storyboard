@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xZI-7Y-VgZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -856,7 +856,7 @@
         <!--Друзья-->
         <scene sceneID="ze6-QU-2tt">
             <objects>
-                <tableViewController id="ohc-fY-DXa" customClass="FriendsViewController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ohc-fY-DXa" customClass="ChangeViewController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dpv-Pj-Ds8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -913,7 +913,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Выйти" id="SEt-DY-RHS"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="fNv-Ng-OBK" id="uKd-Qj-tAr"/>
+                        <outlet property="searchBar" destination="fNv-Ng-OBK" id="nJO-zu-7fI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNw-4g-Fgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
