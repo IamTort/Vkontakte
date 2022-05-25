@@ -99,6 +99,7 @@
                             <constraint firstItem="zk6-Aw-Vzx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="m7v-Xn-1bB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="mZX-F8-QEA"/>
                     <connections>
                         <outlet property="loginInput" destination="zWg-ay-cvi" id="s2Y-DG-mIn"/>
                         <outlet property="passwordInput" destination="6iu-vG-OZW" id="Gar-kN-f5M"/>
@@ -550,7 +551,7 @@
         <!--Photo Friends CoollectionVC-->
         <scene sceneID="XA7-ce-vLh">
             <objects>
-                <collectionViewController id="ePM-8v-M7Z" customClass="PhotoFriendsCoollectionVC" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PhotoFriendsCoollectionVC" id="ePM-8v-M7Z" customClass="PhotoFriendsCoollectionVC" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vev-RH-6Hp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -818,7 +819,7 @@
         <!--Friends-->
         <scene sceneID="aJj-SE-lXN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gPi-8K-U0j" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gPi-8K-U0j" customClass="CustomNavigationController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.2.fill" catalog="system" selectedImage="person.2.fill" id="Eiw-sM-if0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSF-if-ysF">
@@ -827,7 +828,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ohc-fY-DXa" kind="relationship" relationship="rootViewController" id="bgp-tK-Rcc"/>
+                        <segue destination="ohc-fY-DXa" kind="relationship" relationship="rootViewController" id="ZCW-d9-Uu1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYg-HA-ixT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
