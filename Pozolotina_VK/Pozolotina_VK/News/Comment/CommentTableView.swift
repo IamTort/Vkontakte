@@ -36,7 +36,6 @@ class CommentTableView: UITableViewController {
             preconditionFailure("Error")
         }
 
-        print(newCell.count)
         cell.nameLabel.text = newCell[indexPath.row].name
         cell.timeLabel.text = newCell[indexPath.row].time
         cell.avaImage.image = newCell[indexPath.row].ava
@@ -44,14 +43,6 @@ class CommentTableView: UITableViewController {
         cell.mainImage.image = newCell[indexPath.row].picture
         cell.likeLabel.text = String(newCell[indexPath.row].touches)
         cell.viewLabel.text = String(newCell[indexPath.row].watches)
-        // устанавливаем группу в надпись ячейки
-//        cell.newsNameLabel.text = newsCell[indexPath.row].name
-//        cell.newsTimeLabel.text = newsCell[indexPath.row].time
-//        cell.newsTextLabel.text = newsCell[indexPath.row].text
-//        cell.newsImage.image = newsCell[indexPath.row].picture
-//        cell.avaImage.image = newsCell[indexPath.row].ava
-//        cell.watchCountLabel.text = String(newsCell[indexPath.row].watches)
-//        cell.countLabel.text = String(newsCell[indexPath.row].touches)
         
         return cell
     }

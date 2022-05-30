@@ -21,7 +21,7 @@
 		FA3712E5281EC061007D9423 /* loadingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712E4281EC061007D9423 /* loadingPageViewController.swift */; };
 		FA3712EF282D41DF007D9423 /* swipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712EE282D41DF007D9423 /* swipeViewController.swift */; };
 		FA3712FF28366EDC007D9423 /* cloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712FE28366EDC007D9423 /* cloudViewController.swift */; };
-		FA3713012837E52C007D9423 /* ChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3713002837E52B007D9423 /* ChangeViewController.swift */; };
+		FA3713012837E52C007D9423 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3713002837E52B007D9423 /* FriendViewController.swift */; };
 		FA9EB65F2804676200AC80F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB65E2804676200AC80F3 /* AppDelegate.swift */; };
 		FA9EB6612804676200AC80F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB6602804676200AC80F3 /* SceneDelegate.swift */; };
 		FA9EB6662804676200AC80F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9EB6642804676200AC80F3 /* Main.storyboard */; };
@@ -34,6 +34,7 @@
 		FAA4D463280A036200BDDB17 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4D462280A036200BDDB17 /* FriendsTableViewCell.swift */; };
 		FAB6E18A283E767D00731E5A /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E189283E767D00731E5A /* CustomNavigationController.swift */; };
 		FAB6E18C283E97B000731E5A /* Push&PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E18B283E97B000731E5A /* Push&PopAnimator.swift */; };
+		FAB6E1C22842AA4900731E5A /* SessionSinglton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */; };
 		FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CC280EB87800FA2A0E /* Model.swift */; };
 		FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */; };
 		FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */; };
@@ -58,7 +59,7 @@
 		FA3712E4281EC061007D9423 /* loadingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingPageViewController.swift; sourceTree = "<group>"; };
 		FA3712EE282D41DF007D9423 /* swipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swipeViewController.swift; sourceTree = "<group>"; };
 		FA3712FE28366EDC007D9423 /* cloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cloudViewController.swift; sourceTree = "<group>"; };
-		FA3713002837E52B007D9423 /* ChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewController.swift; sourceTree = "<group>"; };
+		FA3713002837E52B007D9423 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		FA9EB65B2804676200AC80F3 /* Pozolotina_VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pozolotina_VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9EB65E2804676200AC80F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9EB6602804676200AC80F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		FAA4D462280A036200BDDB17 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		FAB6E189283E767D00731E5A /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FAB6E18B283E97B000731E5A /* Push&PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Push&PopAnimator.swift"; sourceTree = "<group>"; };
+		FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSinglton.swift; sourceTree = "<group>"; };
 		FAC5F1CC280EB87800FA2A0E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avatarUIView.swift; sourceTree = "<group>"; };
 		FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		F7BE13B128181BEB006950E7 /* OldFiles */ = {
 			isa = PBXGroup;
 			children = (
+				FA3712AD2811DE85007D9423 /* FriendsTableVC.swift */,
 				FAF81FFC2809E92100E74BB4 /* FriendsController.swift */,
 				FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */,
 				FAC5F1D2280F3A4F00FA2A0E /* WeekDay.swift */,
@@ -178,6 +181,7 @@
 				FA9EB66C2804676200AC80F3 /* Info.plist */,
 				FA3712E4281EC061007D9423 /* loadingPageViewController.swift */,
 				FA3712FE28366EDC007D9423 /* cloudViewController.swift */,
+				FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */,
 			);
 			path = Pozolotina_VK;
 			sourceTree = "<group>";
@@ -216,8 +220,7 @@
 				FA3712EE282D41DF007D9423 /* swipeViewController.swift */,
 				FADC49AC280AE51E0048E74F /* PhotoCollectionVCell.swift */,
 				FADC49AA280AE5090048E74F /* PhotoFriendsCoollectionVC.swift */,
-				FA3713002837E52B007D9423 /* ChangeViewController.swift */,
-				FA3712AD2811DE85007D9423 /* FriendsTableVC.swift */,
+				FA3713002837E52B007D9423 /* FriendViewController.swift */,
 				FAA4D462280A036200BDDB17 /* FriendsTableViewCell.swift */,
 			);
 			path = Friends;
@@ -311,9 +314,10 @@
 				FAC5F1D3280F3A4F00FA2A0E /* WeekDay.swift in Sources */,
 				FA3712E5281EC061007D9423 /* loadingPageViewController.swift in Sources */,
 				FA3712B1281881B6007D9423 /* NewsTableViewCell.swift in Sources */,
-				FA3713012837E52C007D9423 /* ChangeViewController.swift in Sources */,
+				FA3713012837E52C007D9423 /* FriendViewController.swift in Sources */,
 				FADC49AB280AE5090048E74F /* PhotoFriendsCoollectionVC.swift in Sources */,
 				FA9EB65F2804676200AC80F3 /* AppDelegate.swift in Sources */,
+				FAB6E1C22842AA4900731E5A /* SessionSinglton.swift in Sources */,
 				FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */,
 				F7BE13AF28180A13006950E7 /* AvatarsView.swift in Sources */,
 				FA9EB67A2809B9ED00AC80F3 /* NotMyGroupsController.swift in Sources */,

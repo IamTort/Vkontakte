@@ -22,8 +22,6 @@ class ViewController: UIViewController {
            // Присваиваем его UIScrollVIew
            scrollView?.addGestureRecognizer(hideKeyboardGesture)
            
-           
-           
        }
        
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
@@ -72,7 +70,10 @@ class ViewController: UIViewController {
        override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
            let login = loginInput.text!
            let password = passwordInput.text!
-               if login == "" && password == "" { return true
+               if login == "" && password == "" {
+                   SessionSinglton.instance.token = "123"
+                   SessionSinglton.instance.userId = 424
+                   return true
                } else {
                return false
            }

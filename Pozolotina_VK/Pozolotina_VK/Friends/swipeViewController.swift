@@ -7,8 +7,6 @@
 
 import UIKit
 
-    //var imageList = [UIImage(named: "avto"), UIImage(named: "cat")]
-
 class newViewController: UIViewController {
     var imageList = [User]()
     @IBOutlet weak var imagView: UIImageView!
@@ -65,8 +63,8 @@ class newViewController: UIViewController {
                         self.colorView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                         self.imagView.image = self.imageList[0].photos![self.swipe]
                         
+                        }
                     }
-                }
                     
                 } else {
                     UIView.animate(withDuration: 0.2,
@@ -76,7 +74,7 @@ class newViewController: UIViewController {
                                    options: .curveLinear) {
                         self.colorView.frame.origin.x = 30
                         
-                    } completion: { _ in
+                        } completion: { _ in
                         UIView.animate(withDuration: 0.4,
                                        delay: 0,
                                        usingSpringWithDamping: 0.5,
@@ -87,8 +85,6 @@ class newViewController: UIViewController {
                     }
 
             }
-                
-                
                 
             case UISwipeGestureRecognizer.Direction.left:
                 if swipe < imageList[0].photos!.count - 1 {
@@ -137,16 +133,4 @@ class newViewController: UIViewController {
             }
         }
     }
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 }

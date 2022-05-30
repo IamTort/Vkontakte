@@ -819,7 +819,7 @@
         <!--Friends-->
         <scene sceneID="aJj-SE-lXN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gPi-8K-U0j" customClass="CustomNavigationController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gPi-8K-U0j" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.2.fill" catalog="system" selectedImage="person.2.fill" id="Eiw-sM-if0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSF-if-ysF">
@@ -857,7 +857,7 @@
         <!--Друзья-->
         <scene sceneID="ze6-QU-2tt">
             <objects>
-                <tableViewController id="ohc-fY-DXa" customClass="ChangeViewController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ohc-fY-DXa" customClass="FriendViewController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dpv-Pj-Ds8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -871,7 +871,7 @@
                             </scopeButtonTitles>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" id="2Ak-gh-K6Q" customClass="FriendsCell" customModule="Pozolotina_VK" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="2Ak-gh-K6Q" customClass="FriendCell" customModule="Pozolotina_VK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="95.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Ak-gh-K6Q" id="8O9-Ge-D65">

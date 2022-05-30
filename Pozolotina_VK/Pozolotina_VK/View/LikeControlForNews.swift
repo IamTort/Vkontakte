@@ -18,9 +18,6 @@ class LikeControlForNews: UIControl {
 //        likePictire.backgroundColor = .clear
         likePictire.tintColor = .gray
         
-        
     }
 
-    
-    
 }

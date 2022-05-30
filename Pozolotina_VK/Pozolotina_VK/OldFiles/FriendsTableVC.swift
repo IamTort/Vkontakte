@@ -142,7 +142,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // получить ячейку класса FriendsCell
     
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as! FriendsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as! FriendCell
         
     
         // Ищем по буквам +  сортируем
@@ -155,7 +155,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         }
         cell.friendsName.text = usersRow[indexPath.row]
         
-        //Если аватара нет, то ставим системнуюб иконку..
+        //Если аватара нет, то ставим системную иконку..
         for i in 0..<friends.count {
             let value = friends[i]
             if value.name == usersRow[indexPath.row] {
@@ -183,12 +183,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
                  let destination = segue.destination as? PhotoFriendsCoollectionVC,
                  let indexPath = tableView.indexPathForSelectedRow {
                  print(indexPath)
-                 let keySelected = searchList.sorted()[indexPath.section]
-                 
-                 print(keySelected)
-                 //let realname = searchList[keySelected]![indexPath.row]
-                 print(searchList)
-                 //destination.friendsName = friends[indexPath.row].name
+                 //let keySelected = searchList.sorted()[indexPath.section]
                  if searchBarIsEmpty {
                      destination.friends.append(friends[indexPath.row])
                  } else {

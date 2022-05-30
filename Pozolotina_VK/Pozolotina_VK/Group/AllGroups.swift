@@ -96,9 +96,6 @@ class AllGroups: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            myGroups.remove(at: indexPath.row)
-//            // Delete the row from the data source
-//            tableView.deleteRows(at: [indexPath], with: .fade)
             
             let group = myGroups[indexPath.row]
             
@@ -110,10 +107,6 @@ class AllGroups: UITableViewController {
             
         }  
     }
-    
-
-    
-
 }
 
 extension AllGroups: UISearchBarDelegate {
