@@ -53,12 +53,14 @@ class FriendViewController: UITableViewController {
         searchList = friends.map { item in return item.name }
         
         sortCharacterOfNamesAlphabet()
+        
+        tableView.register(FriendCell.self, forCellReuseIdentifier: "FriendCell")
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        print(SessionSinglton.instance.userId)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        print(SessionSinglton.instance.userId)
+//    }
     
     // Здесь создаешь массим из начальных букв юзеров
     func sortCharacterOfNamesAlphabet() {
@@ -115,7 +117,7 @@ class FriendViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendCell
         
-        
+        cell.friendsName = UILabel()
         let firstChar = sortedFriendsDict.keys.sorted()[indexPath.section]
         let users = sortedFriendsDict[firstChar]!
         let user = users[indexPath.row]
@@ -135,10 +137,10 @@ class FriendViewController: UITableViewController {
             if value.name == usersRow[indexPath.row] {
                 if value.image == nil {
            
-            cell.friendsImageView.avatarImage.image = avatarsFriendsList[indexPath.row]
+             cell.friendsImageView.avatarImage.image = avatarsFriendsList[indexPath.row]
                 } else {
     
-                    cell.friendsImageView.avatarImage.image = user.image
+                     cell.friendsImageView.avatarImage.image = user.image
                 }
             }
         }

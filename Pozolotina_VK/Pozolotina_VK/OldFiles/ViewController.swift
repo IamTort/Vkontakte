@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import WebKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -22,7 +24,12 @@ class ViewController: UIViewController {
            // Присваиваем его UIScrollVIew
            scrollView?.addGestureRecognizer(hideKeyboardGesture)
            
-       }
+        self.view = webview
+        
+        webview?.navigationDelegate = self
+        loadAuth()
+        
+    }
        
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
                // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
@@ -71,8 +78,6 @@ class ViewController: UIViewController {
            let login = loginInput.text!
            let password = passwordInput.text!
                if login == "" && password == "" {
-                   SessionSinglton.instance.token = "123"
-                   SessionSinglton.instance.userId = 424
                    return true
                } else {
                return false
@@ -80,5 +85,69 @@ class ViewController: UIViewController {
 
        }
        
+    @IBOutlet private var webview: WKWebView? = {
+        let config = WKWebViewConfiguration()
+        let view = WKWebView(frame: .zero, configuration: config)
+        return view
+    }()
+    
+}
+
+
+extension ViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard let url = navigationResponse.response.url,
+              url.path == "/blank.html",
+              let fragment = url.fragment
+        else {
+            decisionHandler(.allow)
+            return
+        }
+        let params = fragment
+            .components(separatedBy: "&")
+            .map { $0.components(separatedBy: "=") }
+            .reduce([String: String]()) { result, param in
+                var dict = result
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+                return dict
+            }
+        if let token = params["access_token"], let userId = params["user_id"] {
+            SessionSinglton.instance.token = token
+            SessionSinglton.instance.userId = Int(userId)
+            print(token)
+            print(userId)
+            //let vc = FriendViewController()
+            performSegue(withIdentifier: "workPlease", sender: nil)
+            decisionHandler(.cancel)
+        }
+        
+    }
+    
+}
+
+private extension ViewController {
+    func loadAuth() {
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "oauth.vk.com"
+        urlComponents.path = "/authorize"
+        urlComponents.queryItems = [URLQueryItem(name: "client_id", value: "8181012"),
+                                    URLQueryItem(name: "display", value: "mobile"),
+                                    URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
+                                    URLQueryItem(name: "scope", value: "friends, groups, photos"),
+                                    URLQueryItem(name: "response_type", value: "token"),
+                                    URLQueryItem(name: "revoke", value: "0")
+        ]
+        
+        guard let url = urlComponents.url else { return }
+        let request = URLRequest(url: url)
+        print("request - \(request)")
+        webview?.load(request)
+        
+    }
+    
     
 }
