@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChangeViewController: UITableViewController {
+class FriendViewController: UITableViewController {
 
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -53,6 +53,11 @@ class ChangeViewController: UITableViewController {
         searchList = friends.map { item in return item.name }
         
         sortCharacterOfNamesAlphabet()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(SessionSinglton.instance.userId)
     }
     
     // Здесь создаешь массим из начальных букв юзеров
@@ -108,7 +113,7 @@ class ChangeViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as! FriendsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendCell
         
         
         let firstChar = sortedFriendsDict.keys.sorted()[indexPath.section]
@@ -141,8 +146,6 @@ class ChangeViewController: UITableViewController {
         return cell
     }
     
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "checkPhoto",
@@ -153,25 +156,21 @@ class ChangeViewController: UITableViewController {
                 let index = Int(indexPath.row)
                 let fchar = strChar[0]
                 
-                    if searchBar.text == "" {
-                        let friends = sortedFriendsDict[fchar]![index]
-                        destination.friends.append(friends)
-                    } else {
-                        let arrayOfFriends = friends.filter() { $0.name.lowercased().contains(searchBar.text!.lowercased()) }
-                        let friend = arrayOfFriends[index]
-                        destination.friends.append(friend)
-                        //destination.friends.append(one)
-            //destination.friendsName = friends[indexPath.row].name
-                    }
-    
-
+                if searchBar.text == "" {
+                    let friends = sortedFriendsDict[fchar]![index]
+                    destination.friends.append(friends)
+                } else {
+                    let arrayOfFriends = friends.filter() { $0.name.lowercased().contains(searchBar.text!.lowercased()) }
+                    let friend = arrayOfFriends[index]
+                    destination.friends.append(friend)
+                }
         }
     }
     
 }
 
 
-extension ChangeViewController: UISearchBarDelegate {
+extension FriendViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         

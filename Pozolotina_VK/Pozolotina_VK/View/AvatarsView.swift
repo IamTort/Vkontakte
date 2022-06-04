@@ -13,21 +13,16 @@ import UIKit
 // Если его раскоммитить , то будет выдавать ошибку, но не обращай внимание, проект всеравно сбилдится...
 // @IBDesignable 
 class AvatarsView: UIView {
-        
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupAvatarView()
     }
     
-   
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupAvatarView()
     }
-    
-    // Можешь сама улучшить аватар, например, создать метод, который будет анимировать нажатия по нему, типа "пружины"
-    // UITapGestureRecognizer - данный метод отслеживает тап(нажатия пальцами), моежешь применить в качестве практики..
  
     let avatarImage: UIImageView = UIImageView(image: UIImage(systemName: "person"))
 

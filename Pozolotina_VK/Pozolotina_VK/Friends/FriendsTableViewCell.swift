@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FriendsCell: UITableViewCell {
+class FriendCell: UITableViewCell {
 
     @IBOutlet weak var friendsName: UILabel!
     @IBOutlet var friendsImageView: AvatarsView!
@@ -25,7 +25,6 @@ class FriendsCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
     @objc func handleTap(_: UITapGestureRecognizer) {
