@@ -21,7 +21,7 @@ class PhotoFriendsCoollectionVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        print(friends[0].name)
+        //print(friends[0].name)
         return friends.count
     }
 

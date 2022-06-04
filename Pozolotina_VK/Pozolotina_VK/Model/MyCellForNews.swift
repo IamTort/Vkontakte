@@ -53,6 +53,17 @@ class MyCellForNews: UITableViewCell {
             likeViewTap.backgroundColor = #colorLiteral(red: 0.9078575083, green: 0.6176608387, blue: 0.6394784387, alpha: 1)
             likeView.likePictire.image =  UIImage(systemName: "heart.circle.fill")
             likeView.likePictire.tintColor = .red
+            
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.3,
+                           initialSpringVelocity: 1,
+                           options: .curveEaseInOut) {
+                self.likeView.likePictire.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            
+            }
+            likeView.likePictire.transform = .identity
+            
             loveLabel.textColor = .red
             touches += 1
         } else {

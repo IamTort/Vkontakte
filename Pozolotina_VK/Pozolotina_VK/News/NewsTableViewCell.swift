@@ -51,6 +51,14 @@ class NewsTableViewCell: UITableViewCell {
         likeControle.isLike.toggle()
         
         if likeControle.isLike {
+            
+            UIView.transition(with: likeControle,
+                              duration: 1,
+                              options: .transitionFlipFromRight) {
+//                self.likeControle.likePictire.image != nil
+            }
+            
+            
             likeControle.likePictire.image = UIImage(systemName: "suit.heart.fill")
             likeControle.likePictire.tintColor = .red
             countLabel.textColor = .red

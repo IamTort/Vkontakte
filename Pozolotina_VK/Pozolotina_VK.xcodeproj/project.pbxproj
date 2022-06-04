@@ -18,6 +18,7 @@
 		FA3712BF281AB817007D9423 /* MyCellForNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712BE281AB817007D9423 /* MyCellForNews.swift */; };
 		FA3712C1281AB9A0007D9423 /* CommentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712C0281AB9A0007D9423 /* CommentTableView.swift */; };
 		FA3712C3281B05CE007D9423 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712C2281B05CE007D9423 /* CommentCell.swift */; };
+		FA3712E5281EC061007D9423 /* loadingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3712E4281EC061007D9423 /* loadingPageViewController.swift */; };
 		FA9EB65F2804676200AC80F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB65E2804676200AC80F3 /* AppDelegate.swift */; };
 		FA9EB6612804676200AC80F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB6602804676200AC80F3 /* SceneDelegate.swift */; };
 		FA9EB6662804676200AC80F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9EB6642804676200AC80F3 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		FA3712BE281AB817007D9423 /* MyCellForNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCellForNews.swift; sourceTree = "<group>"; };
 		FA3712C0281AB9A0007D9423 /* CommentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableView.swift; sourceTree = "<group>"; };
 		FA3712C2281B05CE007D9423 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		FA3712E4281EC061007D9423 /* loadingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingPageViewController.swift; sourceTree = "<group>"; };
 		FA9EB65B2804676200AC80F3 /* Pozolotina_VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pozolotina_VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9EB65E2804676200AC80F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9EB6602804676200AC80F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				FA9EB6672804676200AC80F3 /* Assets.xcassets */,
 				FA9EB6692804676200AC80F3 /* LaunchScreen.storyboard */,
 				FA9EB66C2804676200AC80F3 /* Info.plist */,
+				FA3712E4281EC061007D9423 /* loadingPageViewController.swift */,
 			);
 			path = Pozolotina_VK;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				FADC49AD280AE51E0048E74F /* PhotoCollectionVCell.swift in Sources */,
 				FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */,
 				FAC5F1D3280F3A4F00FA2A0E /* WeekDay.swift in Sources */,
+				FA3712E5281EC061007D9423 /* loadingPageViewController.swift in Sources */,
 				FA3712B1281881B6007D9423 /* NewsTableViewCell.swift in Sources */,
 				FADC49AB280AE5090048E74F /* PhotoFriendsCoollectionVC.swift in Sources */,
 				FA9EB65F2804676200AC80F3 /* AppDelegate.swift in Sources */,

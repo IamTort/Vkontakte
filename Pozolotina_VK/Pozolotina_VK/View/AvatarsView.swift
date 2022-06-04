@@ -52,4 +52,5 @@ class AvatarsView: UIView {
         self.addSubview(avatarImage)
     }
     
+    
 }

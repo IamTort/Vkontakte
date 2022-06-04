@@ -39,15 +39,34 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     var searchList: [String] = []
     var letersOfNames: [String] = []
     
+        // это для фильтрации массива и в дальнейшем этот массив передается на другой экран (пока работает только если массив имеет 1 элемент)
+        // -----------------
+    private var filteredRestaurants = [User]()
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchBar.text else { return false }
+        return text.isEmpty
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        
+        filteredRestaurants = friends.filter({ (restaurant: User) -> Bool in
+            return restaurant.name.lowercased().contains(searchText.lowercased())
+        })
+        print("filterd User = \(filteredRestaurants)")
+        tableView.reloadData()
+    }
+        //----------------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // для поиска
         tableView.dataSource = self
         searchBar.delegate = self
+        searchBar.placeholder = "Search"
         searchList = friends.map { item in return item.name }
         
-
+        
         sortCharacterOfNamesAlphabet()
     }
 
@@ -59,6 +78,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
         searchList = searchText.isEmpty ? friends.map { item in return item.name } : friends.map { item in return item.name }.filter { (item: String) -> Bool in
             return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
+       filterContentForSearchText(searchText)
         sortCharacterOfNamesAlphabet() // создаем заново массив заглавных букв для хедера
         tableView.reloadData()
     }
@@ -80,6 +100,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        
         return letersOfNames.count
     }
     
@@ -161,11 +182,18 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
              if segue.identifier == "checkPhoto",
                  let destination = segue.destination as? PhotoFriendsCoollectionVC,
                  let indexPath = tableView.indexPathForSelectedRow {
-
+                 print(indexPath)
+                 let keySelected = searchList.sorted()[indexPath.section]
+                 print(keySelected)
+                 //let realname = searchList[keySelected]![indexPath.row]
+                 print(searchList)
                  //destination.friendsName = friends[indexPath.row].name
-                 destination.friends.append(friends[indexPath.row])
+                 if searchBarIsEmpty {
+                     destination.friends.append(friends[indexPath.row])
+                 } else {
+                 destination.friends.append(filteredRestaurants[indexPath.row])
+                 }
              }
          }
     
 }
-
