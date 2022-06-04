@@ -41,7 +41,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
         // это для фильтрации массива и в дальнейшем этот массив передается на другой экран (пока работает только если массив имеет 1 элемент)
         // -----------------
-    private var filteredRestaurants = [User]()
+    private var filteredFriends = [User]()
     private var searchBarIsEmpty: Bool {
         guard let text = searchBar.text else { return false }
         return text.isEmpty
@@ -49,10 +49,10 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     
     private func filterContentForSearchText(_ searchText: String) {
         
-        filteredRestaurants = friends.filter({ (restaurant: User) -> Bool in
+        filteredFriends = friends.filter({ (restaurant: User) -> Bool in
             return restaurant.name.lowercased().contains(searchText.lowercased())
         })
-        print("filterd User = \(filteredRestaurants)")
+        print("filterd User = \(filteredFriends)")
         tableView.reloadData()
     }
         //----------------
@@ -184,6 +184,8 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
                  let indexPath = tableView.indexPathForSelectedRow {
                  print(indexPath)
                  let keySelected = searchList.sorted()[indexPath.section]
+                 
+                 let firstChar = 
                  print(keySelected)
                  //let realname = searchList[keySelected]![indexPath.row]
                  print(searchList)
@@ -191,7 +193,7 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
                  if searchBarIsEmpty {
                      destination.friends.append(friends[indexPath.row])
                  } else {
-                 destination.friends.append(filteredRestaurants[indexPath.row])
+                 destination.friends.append(filteredFriends[indexPath.row])
                  }
              }
          }
