@@ -58,56 +58,16 @@ class PhotoFriendsCoollectionVC: UICollectionViewController {
 }
 
 
-
-
-
-/*
-    private let reuseIdentifier = "Cell"
-class PhotoController: UICollectionViewController {
-    var friends = [User]()
-    var friendsName: String?
-    var friendsImageView : UIImage?
-    override func viewDidLoad() {
-    
-        super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-        
-        // Register cell classes
-       self.collectionView!.register(UICollectionViewCell.self,  forCellWithReuseIdentifier: "checkPhoto")
-
-        // Do any additional setup after loading the view.
-    }
-    
-
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return friends.count
-    }
-    
-    
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else {
-            preconditionFailure("Error")
-        }
-        
-        //print(friends)
-        // Configure the cell
-        cell.photoImageView.image = friends[indexPath.row].image
-        
-
-        return cell
-    }
-
-}
-*/
+//extension PhotoFriendsCoollectionVC: UIViewControllerTransitioningDelegate  {
+//
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return PushAnimator()
+//    }
+//
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        return PopAnimator()
+//    }
+//
+//}
 
 

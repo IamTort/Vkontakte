@@ -144,6 +144,7 @@ class ChangeViewController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "checkPhoto",
             let destination = segue.destination as? PhotoFriendsCoollectionVC,
             let indexPath = tableView.indexPathForSelectedRow {

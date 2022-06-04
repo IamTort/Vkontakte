@@ -185,7 +185,6 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
                  print(indexPath)
                  let keySelected = searchList.sorted()[indexPath.section]
                  
-                 let firstChar = 
                  print(keySelected)
                  //let realname = searchList[keySelected]![indexPath.row]
                  print(searchList)
