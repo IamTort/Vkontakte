@@ -7,12 +7,13 @@
 
 import Foundation
 
+
+//MARK: - синглтон для хранения данных о текущей сесии
 final class SessionSinglton {
     
     static let instance = SessionSinglton()
     
     private init() {}
-    
     var token: String?
     var userId: Int?
 

@@ -78,7 +78,7 @@ class MyCellForNews: UITableViewCell {
     var touches = newCell[0].touches {
         didSet{
             countLabel.text = "\(touches)"
-            
+
         }
     }
 }

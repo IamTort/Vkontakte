@@ -34,6 +34,7 @@ class AllGroups: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadGroups()
         filteredGroups = myGroups
         
     }
@@ -106,6 +107,37 @@ class AllGroups: UITableViewController {
             self.searchBar(searchBarGroups, textDidChange: searchBarGroups.text ?? "")
             
         }  
+    }
+    
+    
+    
+    func loadGroups(){
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.vk.com"
+        // показывает id всех моих групп
+        urlComponents.path = "/method/groups.get"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "user_id", value: String(describing: SessionSinglton.instance.userId!)),
+            URLQueryItem(name: "access_token", value: String(describing: SessionSinglton.instance.token!)),
+            URLQueryItem(name: "v", value: "5.131"),
+        ]
+        
+        let request = URLRequest(url: urlComponents.url!)
+        print(request)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+              
+            do {
+                let result = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                print(result)
+            } catch {
+                print(error)
+            }
+        }.resume()
     }
 }
 

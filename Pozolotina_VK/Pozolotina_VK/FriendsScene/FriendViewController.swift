@@ -46,15 +46,13 @@ class FriendViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadUsers()
         sortedFriendsDict = sortedArray(array: friends)
         
 
         searchList = friends.map { item in return item.name }
         
         sortCharacterOfNamesAlphabet()
-        
-        tableView.register(FriendCell.self, forCellReuseIdentifier: "FriendCell")
     }
     
     
@@ -117,7 +115,7 @@ class FriendViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendCell
         
-        cell.friendsName = UILabel()
+        
         let firstChar = sortedFriendsDict.keys.sorted()[indexPath.section]
         let users = sortedFriendsDict[firstChar]!
         let user = users[indexPath.row]
@@ -169,6 +167,39 @@ class FriendViewController: UITableViewController {
         }
     }
     
+    
+    func loadUsers(){
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.vk.com"
+        //поиск по друзьям, показывает только used id друзей
+        urlComponents.path = "/method/friends.get"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "user_id", value: String(describing: SessionSinglton.instance.userId!)),
+            URLQueryItem(name: "access_token", value: String(describing: SessionSinglton.instance.token!)),
+            URLQueryItem(name: "v", value: "5.131"),
+            //добавляет информацию по каждому другу
+            URLQueryItem(name: "fields", value: "first_name")
+        ]
+        
+        let request = URLRequest(url: urlComponents.url!)
+        print(request)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            
+            do {
+                let result = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                print(result)
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
+    
 }
 
 
@@ -194,3 +225,4 @@ extension StringProtocol {
         self[index(startIndex, offsetBy: offset)]
     }
 }
+
