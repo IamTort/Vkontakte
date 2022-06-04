@@ -22,6 +22,7 @@ class Group {
 struct User {
     let image: UIImage?
     let name: String
+    let photos: [UIImage?]?
     //let friends: [PFriends]
 }
 

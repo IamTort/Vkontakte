@@ -13,18 +13,18 @@ class FriendsViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var friends = [
-        User(image: UIImage(named: "foto")!, name: "Nikita"),
-        User(image: UIImage(named: "foto")!, name: "Stepan"),
-        User(image: UIImage(named: "ava")!, name: "Anna"),
-        User(image: UIImage(named: "ava")!, name: "Angelina"),
-        User(image: UIImage(named: "ava")!, name: "Борис"),
-        User(image: UIImage(named: "ava")!, name: "Владимир"),
-        User(image: UIImage(named: "ava")!, name: "Галина"),
-        User(image: UIImage(named: "foto")!, name: "Геннадий"),
-        User(image: UIImage(named: "ava")!, name: "Влада"),
-        User(image: UIImage(named: "ava")!, name: "Зина"),
-        User(image: UIImage(named: "ava")!, name: "Лена"),
-        User(image: nil, name: "Шамиль")
+        User(image: UIImage(named: "foto")!, name: "Nikita", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!, UIImage(named: "avto")!]),
+        User(image: UIImage(named: "foto")!, name: "Stepan", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!, UIImage(named: "avto")!] ),
+        User(image: UIImage(named: "ava")!, name: "Anna", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!]),
+        User(image: UIImage(named: "ava")!, name: "Angelina", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!]),
+        User(image: UIImage(named: "ava")!, name: "Борис", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!]),
+        User(image: UIImage(named: "ava")!, name: "Владимир", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!]),
+        User(image: UIImage(named: "ava")!, name: "Галина", photos: nil),
+        User(image: UIImage(named: "foto")!, name: "Геннадий", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!]),
+        User(image: UIImage(named: "ava")!, name: "Влада", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!]),
+        User(image: UIImage(named: "ava")!, name: "Зина", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!]),
+        User(image: UIImage(named: "ava")!, name: "Лена", photos: [UIImage(named: "foto")!, UIImage(named: "cat")!]),
+        User(image: nil, name: "Шамиль", photos: nil)
     ]
     
         // пусть пока будет
