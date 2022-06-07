@@ -35,6 +35,8 @@
 		FAB6E18A283E767D00731E5A /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E189283E767D00731E5A /* CustomNavigationController.swift */; };
 		FAB6E18C283E97B000731E5A /* Push&PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E18B283E97B000731E5A /* Push&PopAnimator.swift */; };
 		FAB6E1C22842AA4900731E5A /* SessionSinglton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */; };
+		FABF521328474D4500B66296 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF521228474D4500B66296 /* LoginViewController.swift */; };
+		FABF52152848C80300B66296 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF52142848C80300B66296 /* File.swift */; };
 		FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CC280EB87800FA2A0E /* Model.swift */; };
 		FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */; };
 		FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BDF41ED9619F4086A314325 /* Pods-Pozolotina_VK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pozolotina_VK.release.xcconfig"; path = "Target Support Files/Pods-Pozolotina_VK/Pods-Pozolotina_VK.release.xcconfig"; sourceTree = "<group>"; };
+		59C7093F622916E1AE4A1820 /* Pods-Pozolotina_VK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pozolotina_VK.debug.xcconfig"; path = "Target Support Files/Pods-Pozolotina_VK/Pods-Pozolotina_VK.debug.xcconfig"; sourceTree = "<group>"; };
 		F7BE13AE28180A13006950E7 /* AvatarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarsView.swift; sourceTree = "<group>"; };
 		FA3712AB2811C9A7007D9423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA3712AD2811DE85007D9423 /* FriendsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableVC.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 		FAB6E189283E767D00731E5A /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FAB6E18B283E97B000731E5A /* Push&PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Push&PopAnimator.swift"; sourceTree = "<group>"; };
 		FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSinglton.swift; sourceTree = "<group>"; };
+		FABF521228474D4500B66296 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FABF52142848C80300B66296 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		FAC5F1CC280EB87800FA2A0E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avatarUIView.swift; sourceTree = "<group>"; };
 		FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
@@ -95,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E0C6CD11F916FD28C9531BB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59C7093F622916E1AE4A1820 /* Pods-Pozolotina_VK.debug.xcconfig */,
+				0BDF41ED9619F4086A314325 /* Pods-Pozolotina_VK.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F7BE13B028180A5D006950E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +124,7 @@
 		F7BE13B128181BEB006950E7 /* OldFiles */ = {
 			isa = PBXGroup;
 			children = (
+				FA3712AB2811C9A7007D9423 /* ViewController.swift */,
 				FA3712AD2811DE85007D9423 /* FriendsTableVC.swift */,
 				FAF81FFC2809E92100E74BB4 /* FriendsController.swift */,
 				FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */,
@@ -121,20 +137,30 @@
 			isa = PBXGroup;
 			children = (
 				FAC5F1CC280EB87800FA2A0E /* Model.swift */,
+				FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */,
 				FA3712BA281AA770007D9423 /* MyCellForNews.xib */,
 				FA3712BE281AB817007D9423 /* MyCellForNews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		FA3712AF2818817D007D9423 /* News */ = {
+		FA1742F8284A195600341868 /* AppFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FA9EB6602804676200AC80F3 /* SceneDelegate.swift */,
+				FA9EB65E2804676200AC80F3 /* AppDelegate.swift */,
+			);
+			path = AppFiles;
+			sourceTree = "<group>";
+		};
+		FA3712AF2818817D007D9423 /* NewsScene */ = {
 			isa = PBXGroup;
 			children = (
 				FA3712B9281AA0EC007D9423 /* Comment */,
-				FA3712B0281881B6007D9423 /* NewsTableViewCell.swift */,
 				FA3712B2281885D6007D9423 /* NewsTableVC.swift */,
+				FA3712B0281881B6007D9423 /* NewsTableViewCell.swift */,
 			);
-			path = News;
+			path = NewsScene;
 			sourceTree = "<group>";
 		};
 		FA3712B9281AA0EC007D9423 /* Comment */ = {
@@ -151,6 +177,7 @@
 			children = (
 				FA9EB65D2804676200AC80F3 /* Pozolotina_VK */,
 				FA9EB65C2804676200AC80F3 /* Products */,
+				E0C6CD11F916FD28C9531BB1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,15 +192,14 @@
 		FA9EB65D2804676200AC80F3 /* Pozolotina_VK */ = {
 			isa = PBXGroup;
 			children = (
-				FAB6E188283E765600731E5A /* SegueAnimation */,
-				FA3712AF2818817D007D9423 /* News */,
-				FAF81FF92809E8C400E74BB4 /* Friends */,
-				FA9EB67228095E0100AC80F3 /* Group */,
+				FA1742F8284A195600341868 /* AppFiles */,
+				FABF521128474C8000B66296 /* LoginScene */,
+				FAF81FF92809E8C400E74BB4 /* FriendsScene */,
+				FA9EB67228095E0100AC80F3 /* GroupScene */,
+				FA3712AF2818817D007D9423 /* NewsScene */,
 				F7BE13B028180A5D006950E7 /* View */,
 				F7BE13B22818201E006950E7 /* Model */,
-				FA9EB65E2804676200AC80F3 /* AppDelegate.swift */,
-				FA3712AB2811C9A7007D9423 /* ViewController.swift */,
-				FA9EB6602804676200AC80F3 /* SceneDelegate.swift */,
+				FAB6E188283E765600731E5A /* SegueAnimation */,
 				F7BE13B128181BEB006950E7 /* OldFiles */,
 				FA9EB6642804676200AC80F3 /* Main.storyboard */,
 				FA9EB6672804676200AC80F3 /* Assets.xcassets */,
@@ -181,19 +207,19 @@
 				FA9EB66C2804676200AC80F3 /* Info.plist */,
 				FA3712E4281EC061007D9423 /* loadingPageViewController.swift */,
 				FA3712FE28366EDC007D9423 /* cloudViewController.swift */,
-				FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */,
+				FABF52142848C80300B66296 /* File.swift */,
 			);
 			path = Pozolotina_VK;
 			sourceTree = "<group>";
 		};
-		FA9EB67228095E0100AC80F3 /* Group */ = {
+		FA9EB67228095E0100AC80F3 /* GroupScene */ = {
 			isa = PBXGroup;
 			children = (
 				FA9EB6782809B95D00AC80F3 /* NotMyGroupYet */,
 				FA9EB67328095E6200AC80F3 /* AllGroups.swift */,
 				FA9EB67528095E8D00AC80F3 /* GroupsCell.swift */,
 			);
-			path = Group;
+			path = GroupScene;
 			sourceTree = "<group>";
 		};
 		FA9EB6782809B95D00AC80F3 /* NotMyGroupYet */ = {
@@ -214,16 +240,24 @@
 			path = SegueAnimation;
 			sourceTree = "<group>";
 		};
-		FAF81FF92809E8C400E74BB4 /* Friends */ = {
+		FABF521128474C8000B66296 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
-				FA3712EE282D41DF007D9423 /* swipeViewController.swift */,
-				FADC49AC280AE51E0048E74F /* PhotoCollectionVCell.swift */,
-				FADC49AA280AE5090048E74F /* PhotoFriendsCoollectionVC.swift */,
+				FABF521228474D4500B66296 /* LoginViewController.swift */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		FAF81FF92809E8C400E74BB4 /* FriendsScene */ = {
+			isa = PBXGroup;
+			children = (
 				FA3713002837E52B007D9423 /* FriendViewController.swift */,
 				FAA4D462280A036200BDDB17 /* FriendsTableViewCell.swift */,
+				FADC49AA280AE5090048E74F /* PhotoFriendsCoollectionVC.swift */,
+				FADC49AC280AE51E0048E74F /* PhotoCollectionVCell.swift */,
+				FA3712EE282D41DF007D9423 /* swipeViewController.swift */,
 			);
-			path = Friends;
+			path = FriendsScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,9 +267,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA9EB66F2804676200AC80F3 /* Build configuration list for PBXNativeTarget "Pozolotina_VK" */;
 			buildPhases = (
+				66CD60FB000114FCAEC44837 /* [CP] Check Pods Manifest.lock */,
 				FA9EB6572804676200AC80F3 /* Sources */,
 				FA9EB6582804676200AC80F3 /* Frameworks */,
 				FA9EB6592804676200AC80F3 /* Resources */,
+				136A3AB742FE8C996D04484F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -293,6 +329,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		136A3AB742FE8C996D04484F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pozolotina_VK/Pods-Pozolotina_VK-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pozolotina_VK/Pods-Pozolotina_VK-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pozolotina_VK/Pods-Pozolotina_VK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66CD60FB000114FCAEC44837 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pozolotina_VK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA9EB6572804676200AC80F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -310,6 +388,7 @@
 				FAB6E18A283E767D00731E5A /* CustomNavigationController.swift in Sources */,
 				FA3712B628192B88007D9423 /* LikeControlForNews.swift in Sources */,
 				FADC49AD280AE51E0048E74F /* PhotoCollectionVCell.swift in Sources */,
+				FABF521328474D4500B66296 /* LoginViewController.swift in Sources */,
 				FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */,
 				FAC5F1D3280F3A4F00FA2A0E /* WeekDay.swift in Sources */,
 				FA3712E5281EC061007D9423 /* loadingPageViewController.swift in Sources */,
@@ -328,6 +407,7 @@
 				FAF81FFD2809E92100E74BB4 /* FriendsController.swift in Sources */,
 				FA9EB67428095E6200AC80F3 /* AllGroups.swift in Sources */,
 				FA3712C3281B05CE007D9423 /* CommentCell.swift in Sources */,
+				FABF52152848C80300B66296 /* File.swift in Sources */,
 				FA3712EF282D41DF007D9423 /* swipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +550,7 @@
 		};
 		FA9EB6702804676200AC80F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59C7093F622916E1AE4A1820 /* Pods-Pozolotina_VK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -501,6 +582,7 @@
 		};
 		FA9EB6712804676200AC80F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BDF41ED9619F4086A314325 /* Pods-Pozolotina_VK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

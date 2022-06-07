@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WAX-8F-B8K">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -9,6 +9,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="2UH-Lo-bvV">
+            <objects>
+                <viewController id="WAX-8F-B8K" customClass="LoginViewController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f4U-Pt-FSU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJK-9y-uhN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uV8-iJ-c5d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RJK-9y-uhN" firstAttribute="trailing" secondItem="uV8-iJ-c5d" secondAttribute="trailing" id="GYe-uy-kjm"/>
+                            <constraint firstAttribute="bottom" secondItem="RJK-9y-uhN" secondAttribute="bottom" id="JQy-Mr-Kyt"/>
+                            <constraint firstItem="RJK-9y-uhN" firstAttribute="leading" secondItem="uV8-iJ-c5d" secondAttribute="leading" id="Wa1-yt-amx"/>
+                            <constraint firstItem="RJK-9y-uhN" firstAttribute="top" secondItem="f4U-Pt-FSU" secondAttribute="top" id="kUg-8Q-9cN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="RJK-9y-uhN" id="Q5z-hd-UFn"/>
+                        <segue destination="nX2-KK-TWD" kind="presentation" identifier="show" id="Xd0-ry-kgL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Huh-g2-ZPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.043478260869566" y="-630.13392857142856"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -55,24 +90,35 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VKb-5e-Oh8"/>
-                                            <segue destination="nX2-KK-TWD" kind="show" identifier="Login" id="DDR-ds-XzY"/>
                                         </connections>
                                     </button>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBA-te-UYb">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Puq-zP-E77" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c2U-Ik-4IY" secondAttribute="trailing" id="0SU-6f-YkT"/>
+                                    <constraint firstItem="YBA-te-UYb" firstAttribute="bottom" secondItem="Puq-zP-E77" secondAttribute="bottom" id="2YZ-wD-CJt"/>
                                     <constraint firstAttribute="trailing" secondItem="kBl-LD-hfA" secondAttribute="trailing" constant="87" id="2nc-sG-JfJ"/>
                                     <constraint firstItem="c2U-Ik-4IY" firstAttribute="top" secondItem="6iu-vG-OZW" secondAttribute="bottom" constant="36" id="5oj-Gg-FCu"/>
                                     <constraint firstItem="c2U-Ik-4IY" firstAttribute="centerX" secondItem="zk6-Aw-Vzx" secondAttribute="centerX" id="8xh-aX-ocz"/>
                                     <constraint firstItem="Puq-zP-E77" firstAttribute="trailing" secondItem="kBl-LD-hfA" secondAttribute="trailing" constant="87" id="9mh-ku-7B1"/>
                                     <constraint firstItem="6iu-vG-OZW" firstAttribute="top" secondItem="zWg-ay-cvi" secondAttribute="bottom" constant="36" id="BNK-C7-JK4"/>
                                     <constraint firstAttribute="bottom" secondItem="c2U-Ik-4IY" secondAttribute="bottom" constant="20" id="Ecy-Ws-mt6"/>
+                                    <constraint firstItem="YBA-te-UYb" firstAttribute="top" secondItem="Puq-zP-E77" secondAttribute="top" id="Fwr-ky-FBo"/>
                                     <constraint firstItem="c2U-Ik-4IY" firstAttribute="centerX" secondItem="zWg-ay-cvi" secondAttribute="centerX" id="LqO-af-SfB"/>
                                     <constraint firstItem="kBl-LD-hfA" firstAttribute="leading" secondItem="Puq-zP-E77" secondAttribute="leading" constant="87" id="Mj3-Yh-SX3"/>
                                     <constraint firstItem="Puq-zP-E77" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zWg-ay-cvi" secondAttribute="trailing" id="NkC-pv-bdF"/>
                                     <constraint firstItem="6iu-vG-OZW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Puq-zP-E77" secondAttribute="leading" id="P4i-mJ-diF"/>
                                     <constraint firstItem="zWg-ay-cvi" firstAttribute="centerX" secondItem="zk6-Aw-Vzx" secondAttribute="centerX" id="RDh-jo-1dx"/>
+                                    <constraint firstItem="YBA-te-UYb" firstAttribute="leading" secondItem="Puq-zP-E77" secondAttribute="leading" id="ReR-1c-2sz"/>
                                     <constraint firstItem="Puq-zP-E77" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6iu-vG-OZW" secondAttribute="trailing" id="Xbe-Jx-9Mx"/>
+                                    <constraint firstItem="YBA-te-UYb" firstAttribute="trailing" secondItem="Puq-zP-E77" secondAttribute="trailing" id="cnU-4C-VXf"/>
                                     <constraint firstItem="kBl-LD-hfA" firstAttribute="centerX" secondItem="zk6-Aw-Vzx" secondAttribute="centerX" priority="999" id="dgv-DU-mce"/>
                                     <constraint firstItem="kBl-LD-hfA" firstAttribute="top" secondItem="zk6-Aw-Vzx" secondAttribute="top" constant="162" id="iKv-ok-yXf"/>
                                     <constraint firstItem="zWg-ay-cvi" firstAttribute="top" secondItem="kBl-LD-hfA" secondAttribute="bottom" constant="71" id="kHY-fw-kZ6"/>
@@ -104,6 +150,7 @@
                         <outlet property="loginInput" destination="zWg-ay-cvi" id="s2Y-DG-mIn"/>
                         <outlet property="passwordInput" destination="6iu-vG-OZW" id="Gar-kN-f5M"/>
                         <outlet property="scrollView" destination="zk6-Aw-Vzx" id="gSy-mp-6kD"/>
+                        <outlet property="webview" destination="YBA-te-UYb" id="yxO-PL-l7P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,7 +162,7 @@
             <objects>
                 <tableViewController id="Lqa-l1-Qdr" customClass="AllGroups" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="BqF-HZ-ee3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="TSv-Pu-gHd">
@@ -495,7 +542,7 @@
             <objects>
                 <tableViewController id="vwi-I4-kRD" customClass="NotMyGroupsController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qFH-Ih-knE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -553,7 +600,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="PhotoFriendsCoollectionVC" id="ePM-8v-M7Z" customClass="PhotoFriendsCoollectionVC" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vev-RH-6Hp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U2j-Kw-06s">
@@ -648,14 +695,14 @@
             <objects>
                 <viewController id="PDp-Ub-pUi" customClass="newViewController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q7O-LH-K61">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVf-bA-aCj">
-                                <rect key="frame" x="0.0" y="196" width="414" height="477"/>
+                                <rect key="frame" x="0.0" y="228" width="414" height="445"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7OZ-Xp-Zps">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="445"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -823,7 +870,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="person.2.fill" catalog="system" selectedImage="person.2.fill" id="Eiw-sM-if0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSF-if-ysF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -842,7 +889,7 @@
                     <tabBarItem key="tabBarItem" title="Groups" image="person.3.fill" catalog="system" selectedImage="person.3.fill" id="ZK1-qq-C0R"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zpS-mH-sGI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -859,7 +906,7 @@
             <objects>
                 <tableViewController id="ohc-fY-DXa" customClass="FriendViewController" customModule="Pozolotina_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dpv-Pj-Ds8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Поиск" id="fNv-Ng-OBK">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
