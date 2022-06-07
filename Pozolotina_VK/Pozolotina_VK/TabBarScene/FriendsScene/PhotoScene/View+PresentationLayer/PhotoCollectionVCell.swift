@@ -14,8 +14,6 @@ class PhotoCell: UICollectionViewCell {
     @IBOutlet var likeControle: LikeControl!
     @IBOutlet var containerView: UIView!
     
-    
-    
     override  func awakeFromNib() {
         super.awakeFromNib()
         
@@ -24,8 +22,6 @@ class PhotoCell: UICollectionViewCell {
 //        containerView.addGestureRecognizer(tap)
 
     }
-    
-    
     
     @objc func handleTap(_: UITapGestureRecognizer) {
         likeControle.isLike.toggle()

@@ -20,9 +20,10 @@ class Group {
 
 
 struct User {
-    let image: UIImage?
+    let image: String?
     let name: String
     let photos: [UIImage?]?
+    let id: Int
     //let friends: [PFriends]
 }
 
@@ -35,4 +36,8 @@ struct News {
     let touches: Int
     let watches: Int
     
+}
+
+struct Photo {
+    let photos: [String?]
 }
