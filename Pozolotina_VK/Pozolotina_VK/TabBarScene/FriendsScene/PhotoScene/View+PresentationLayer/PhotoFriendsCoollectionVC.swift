@@ -11,26 +11,33 @@ import UIKit
 private let reuseIdentifier = "Cell"
 class PhotoFriendsCoollectionVC: UICollectionViewController {
 
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadPhotos()
+        fetchPhoto()
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
-    let collectionPhotos = FriendsViewController()
     
-    var friends = [User]()
+    let collectionPhotos = FriendViewController()
     
+    private let service = PhotoService()
+    
+    var friendId: String = ""
+    var storedModels: [Sizes] = []
+    var storedImages: [String] = []
+    
+    // MARK: - Table view data source
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return friends.count
+        storedImages.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         
-        let photo = friends[indexPath.row].image
-        cell.photoImageView.image = photo
+//        let photo = friends[indexPath.row].image
+        cell.photoImageView.loadImage(with: storedImages[indexPath.item])
     
         return cell
     }
@@ -42,40 +49,9 @@ class PhotoFriendsCoollectionVC: UICollectionViewController {
             let cell = sender as? UICollectionViewCell,
           let indexPath = collectionView.indexPath(for: cell){
                  
-           destination.imageList.append(self.friends[indexPath.row])
+           //destination.imageList.append(self.friends[indexPath.row])
                 
        }
-    }
-    
-    
-    func loadPhotos(){
-        
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        //получаем все мои фото по данному методу
-        urlComponents.path = "/method/photos.getAll"
-        urlComponents.queryItems = [
-            //если изменить owner_id то покажет фото выбранного друга
-            URLQueryItem(name: "owner_id", value: String(describing: SessionSinglton.instance.userId!)),
-            URLQueryItem(name: "access_token", value: String(describing: SessionSinglton.instance.token!)),
-            URLQueryItem(name: "v", value: "5.131"),
-        ]
-        
-        let request = URLRequest(url: urlComponents.url!)
-        print(request)
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                return
-            }
-              
-            do {
-                let result = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                print(result)
-            } catch {
-                print(error)
-            }
-        }.resume()
     }
 }
 
@@ -92,4 +68,31 @@ class PhotoFriendsCoollectionVC: UICollectionViewController {
 //
 //}
 
-
+//MARK: - Private
+private extension PhotoFriendsCoollectionVC {
+    func fetchPhoto(){
+        service.loadPhotos(for: friendId) { [weak self] photos in
+            self?.storedModels = photos
+            if let imagesLinks = self?.sortImage(type: "z", array: photos) {
+                self?.storedImages = imagesLinks
+            }
+            
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+    }
+    
+    func sortImage(type: String, array: [Sizes]) -> [String] {
+        var links: [String] = []
+        
+        for model in array {
+            for size in model.sizes {
+                if size.type == type {
+                    links.append(size.url)
+                }
+            }
+        }
+        return links
+    }
+}

@@ -7,46 +7,41 @@
 
 import UIKit
 
+/// Контроллер экрана сценария "Мои группы"
 class AllGroups: UITableViewController {
-
     
-    @IBOutlet weak var searchBarGroups: UISearchBar! {
+    @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
-            searchBarGroups.delegate = self
-            
+            searchBar.delegate = self
         }
     }
     
-    var myGroups = [
-        Group(image: UIImage(named: "bigcar")!, name: "Дальнобойщики"),
-        Group(image: UIImage(named: "cat")!, name: "Смешные коты"),
-        Group(image: UIImage(named: "goldring")!, name: "Путешествия по Золотому кольцу"),
-        Group(image: UIImage(named: "cowgirl")!, name: "Дородные доярки"),
-    ]
-    
-    var myGroups2 : [Group] {
+    //возможно не нужное свойство
+    var myGroups2 : [Groups] {
         get {
-            return myGroups
+            return allMyGroups
         }
     }
-    var filteredGroups = [Group]()
     
+    var filteredGroups = [Groups]()
+    
+    let service = GroupService()
+    var groupModel: Resp?
+    var allMyGroups = [Groups]()
         
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadGroups()
-        filteredGroups = myGroups
-        
+        fetchGroups()
     }
-    
     
         //обновляет страницу при добавлении группы
     override func viewWillAppear(_ animated: Bool) {
-        filteredGroups = myGroups
+        //filteredGroups = myGroups
         tableView.reloadData()
     }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -66,7 +61,7 @@ class AllGroups: UITableViewController {
 
         // устанавливаем группу в надпись ячейки
         cell.groupName.text = filteredGroups[indexPath.row].name
-        cell.groupImageView.image = filteredGroups[indexPath.row].image
+        cell.groupImageView.loadImage(with: filteredGroups[indexPath.row].image)
         
         return cell
     }
@@ -78,13 +73,13 @@ class AllGroups: UITableViewController {
            if let notMyGroupsController = segue.source as? NotMyGroupsController,
                 // Получаем индекс выделенной ячейки
             let indexPath = notMyGroupsController.tableView.indexPathForSelectedRow {
-               // Получаем город по индексу
-               let group = notMyGroupsController.availableGroup[indexPath.row]
-                    // Проверяем, что такого города нет в списке
-               if !myGroups.contains(where: {$0.name == group.name}) {
+               // Получаем группу по индексу
+               let group = notMyGroupsController.allGroup[indexPath.row]
+                    // Проверяем, что такой группы нет в списке
+               if !allMyGroups.contains(where: {$0.name == group.name}) {
                   
-                // Добавляем город в список выбранных городов
-                   myGroups.append(group)
+                // Добавляем группу в список выбранных групп
+                   allMyGroups.append(group)
                 
                 // Обновляем таблицу
                    tableView.reloadData()
@@ -98,59 +93,55 @@ class AllGroups: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            let group = myGroups[indexPath.row]
+            let group = allMyGroups[indexPath.row]
             
             //удаляем группу
             
-            myGroups.removeAll() {$0.name == group.name}
+            allMyGroups.removeAll() {$0.name == group.name}
             
-            self.searchBar(searchBarGroups, textDidChange: searchBarGroups.text ?? "")
-            
+            self.searchBar(searchBar, textDidChange: searchBar.text ?? "")
         }  
     }
     
-    
-    
-    func loadGroups(){
-        
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        // показывает id всех моих групп
-        urlComponents.path = "/method/groups.get"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "user_id", value: String(describing: SessionSinglton.instance.userId!)),
-            URLQueryItem(name: "access_token", value: String(describing: SessionSinglton.instance.token!)),
-            URLQueryItem(name: "v", value: "5.131"),
-        ]
-        
-        let request = URLRequest(url: urlComponents.url!)
-        print(request)
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                return
-            }
-              
-            do {
-                let result = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                print(result)
-            } catch {
-                print(error)
-            }
-        }.resume()
+    // мигание ячейки
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
+//MARK: - UISearchBarDelegate
 extension AllGroups: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.isEmpty {
             
-            filteredGroups = myGroups2
+            filteredGroups = allMyGroups
         } else {
             
-            filteredGroups = myGroups2.filter{$0.name.contains(searchText)}
+            filteredGroups = allMyGroups.filter{$0.name.lowercased().contains(searchText.lowercased()) }
         }
         tableView.reloadData()
+    }
+}
+
+//MARK: - Private
+private extension AllGroups {
+    func fetchGroups() {
+        service.loadGroups { result in
+            switch result {
+            case .success(let group):
+                DispatchQueue.main.async {
+                    self.groupModel = group
+                    
+                    self.allMyGroups = (self.groupModel?.response.items)!
+                    
+                    self.filteredGroups = self.allMyGroups
+                    
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
