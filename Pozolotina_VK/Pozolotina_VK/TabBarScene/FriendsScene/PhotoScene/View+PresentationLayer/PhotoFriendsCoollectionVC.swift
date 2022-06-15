@@ -44,14 +44,14 @@ class PhotoFriendsCoollectionVC: UICollectionViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if segue.identifier == "slideIt",
-          let destination = segue.destination as? newViewController,
-            let cell = sender as? UICollectionViewCell,
-          let indexPath = collectionView.indexPath(for: cell){
-                 
-           //destination.imageList.append(self.friends[indexPath.row])
-                
-       }
+//       if segue.identifier == "slideIt",
+//          let destination = segue.destination as? newViewController,
+//            let cell = sender as? UICollectionViewCell,
+//          let indexPath = collectionView.indexPath(for: cell){
+//
+//           //destination.imageList.append(self.friends[indexPath.row])
+//
+//       }
     }
 }
 

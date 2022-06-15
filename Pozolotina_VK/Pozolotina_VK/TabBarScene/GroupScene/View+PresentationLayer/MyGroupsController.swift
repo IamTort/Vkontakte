@@ -8,7 +8,7 @@
 import UIKit
 
 /// Контроллер экрана сценария "Мои группы"
-class AllGroups: UITableViewController {
+class MyGroupsController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -19,15 +19,15 @@ class AllGroups: UITableViewController {
     //возможно не нужное свойство
     var myGroups2 : [Groups] {
         get {
-            return allMyGroups
+            return myGroups
         }
     }
     
     var filteredGroups = [Groups]()
     
     let service = GroupService()
-    var groupModel: Resp?
-    var allMyGroups = [Groups]()
+    var groupModel: ResponseGroup?
+    var myGroups = [Groups]()
         
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ class AllGroups: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //получаем ячейку из пула
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as? GroupsCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as? MyGroupsCell else {
             preconditionFailure("Error")
         }
 
@@ -70,16 +70,16 @@ class AllGroups: UITableViewController {
         // Проверяем идентификатор, чтобы убедиться, что это нужный переход
         if segue.identifier == "addGroup" {
         // Получаем ссылку на контроллер, с которого осуществлен переход
-           if let notMyGroupsController = segue.source as? NotMyGroupsController,
+           if let notMyGroupsController = segue.source as? AllGroupsController,
                 // Получаем индекс выделенной ячейки
             let indexPath = notMyGroupsController.tableView.indexPathForSelectedRow {
                // Получаем группу по индексу
-               let group = notMyGroupsController.allGroup[indexPath.row]
+               let group = notMyGroupsController.allGroups[indexPath.row]
                     // Проверяем, что такой группы нет в списке
-               if !allMyGroups.contains(where: {$0.name == group.name}) {
+               if !myGroups.contains(where: {$0.name == group.name}) {
                   
                 // Добавляем группу в список выбранных групп
-                   allMyGroups.append(group)
+                   myGroups.append(group)
                 
                 // Обновляем таблицу
                    tableView.reloadData()
@@ -93,11 +93,11 @@ class AllGroups: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            let group = allMyGroups[indexPath.row]
+            let group = myGroups[indexPath.row]
             
             //удаляем группу
             
-            allMyGroups.removeAll() {$0.name == group.name}
+            myGroups.removeAll() {$0.name == group.name}
             
             self.searchBar(searchBar, textDidChange: searchBar.text ?? "")
         }  
@@ -110,22 +110,22 @@ class AllGroups: UITableViewController {
 }
 
 //MARK: - UISearchBarDelegate
-extension AllGroups: UISearchBarDelegate {
+extension MyGroupsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.isEmpty {
             
-            filteredGroups = allMyGroups
+            filteredGroups = myGroups
         } else {
             
-            filteredGroups = allMyGroups.filter{$0.name.lowercased().contains(searchText.lowercased()) }
+            filteredGroups = myGroups.filter{$0.name.lowercased().contains(searchText.lowercased()) }
         }
         tableView.reloadData()
     }
 }
 
 //MARK: - Private
-private extension AllGroups {
+private extension MyGroupsController {
     func fetchGroups() {
         service.loadGroups { result in
             switch result {
@@ -133,9 +133,9 @@ private extension AllGroups {
                 DispatchQueue.main.async {
                     self.groupModel = group
                     
-                    self.allMyGroups = (self.groupModel?.response.items)!
+                    self.myGroups = (self.groupModel?.response.items)!
                     
-                    self.filteredGroups = self.allMyGroups
+                    self.filteredGroups = self.myGroups
                     
                     self.tableView.reloadData()
                 }

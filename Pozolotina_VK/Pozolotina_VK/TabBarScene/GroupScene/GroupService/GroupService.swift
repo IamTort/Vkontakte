@@ -6,27 +6,19 @@
 //
 
 import Foundation
-
+/// Класс, отвечающий за загрузку даннных с сервера на контроллер "Мои группы"
 final class GroupService {
     
-    func loadGroups(completion: @escaping((Result<Resp, ServiceError>) -> ())){
+    func loadGroups(completion: @escaping((Result<ResponseGroup, ServiceError>) -> ())){
         
         guard let id = SessionSinglton.instance.userId else { return }
         guard let token = SessionSinglton.instance.token else { return }
         
+        let params = ["user_id": "\(id)",
+                      "v": "5.131",
+                      "extended": "1"]
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/groups.get"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "user_id", value: String(id)),
-            URLQueryItem(name: "access_token", value: String(token)),
-            URLQueryItem(name: "v", value: "5.131"),
-            URLQueryItem(name: "extended", value: "1")
-        ]
-        
-        guard let url = urlComponents.url else {return}
+        let url: URL = .configureURL(token: token, typeMethod: "/method/groups.get", params: params)
         
         let request = URLRequest(url: url)
         print(request)
@@ -40,7 +32,7 @@ final class GroupService {
             }
             
             do {
-                let result = try JSONDecoder().decode(Resp.self, from: data)
+                let result = try JSONDecoder().decode(ResponseGroup.self, from: data)
                 completion(.success(result))
             } catch {
                 completion(.failure(.decodingError))

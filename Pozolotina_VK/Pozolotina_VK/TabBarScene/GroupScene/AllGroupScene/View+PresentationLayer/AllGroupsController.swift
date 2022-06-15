@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotMyGroupsController: UITableViewController {
+class AllGroupsController: UITableViewController {
 
     
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -18,9 +18,9 @@ class NotMyGroupsController: UITableViewController {
     }
     
     let service = SearchGroupService()
-    var groupModel: Resp?
+    var groupModel: ResponseGroup?
     
-    var allGroup = [Groups]()
+    var allGroups = [Groups]()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -36,16 +36,16 @@ class NotMyGroupsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return allGroup.count
+        return allGroups.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoMyGroup", for: indexPath) as! NoMyGroupCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoMyGroup", for: indexPath) as! AllGroupCell
         
-        cell.groupName.text = allGroup[indexPath.row].name
-        cell.availableGroupImageView.loadImage(with: allGroup[indexPath.row].image)
+        cell.groupName.text = allGroups[indexPath.row].name
+        cell.availableGroupImageView.loadImage(with: allGroups[indexPath.row].image)
 
         return cell
     }
@@ -53,7 +53,7 @@ class NotMyGroupsController: UITableViewController {
 }
 
 //MARK: - UISearchBarDelegate
-extension NotMyGroupsController: UISearchBarDelegate {
+extension AllGroupsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchText.isEmpty {
@@ -66,7 +66,7 @@ extension NotMyGroupsController: UISearchBarDelegate {
 }
 
 //MARK: - Private
-private extension NotMyGroupsController {
+private extension AllGroupsController {
     func fetchGroups() {
         service.loadSearchGroups(searchText: searchBar.text) { result in
             switch result {
@@ -74,7 +74,7 @@ private extension NotMyGroupsController {
                 DispatchQueue.main.async {
                     self.groupModel = group
                     
-                    self.allGroup = group.response.items
+                    self.allGroups = group.response.items
                     
                     self.tableView.reloadData()
                 }
