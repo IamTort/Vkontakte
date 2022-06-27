@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		323759D7C043510B87D6FA51 /* Pods_Pozolotina_VK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218C571A0B8FA86129227649 /* Pods_Pozolotina_VK.framework */; };
 		F7BE13AF28180A13006950E7 /* AvatarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BE13AE28180A13006950E7 /* AvatarsView.swift */; };
 		FA1742FB284CA0ED00341868 /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1742FA284CA0ED00341868 /* FriendService.swift */; };
 		FA174300284CA74B00341868 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1742FF284CA74B00341868 /* PhotoService.swift */; };
@@ -35,15 +36,16 @@
 		FA9EB6662804676200AC80F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9EB6642804676200AC80F3 /* Main.storyboard */; };
 		FA9EB6682804676200AC80F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9EB6672804676200AC80F3 /* Assets.xcassets */; };
 		FA9EB66B2804676200AC80F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9EB6692804676200AC80F3 /* LaunchScreen.storyboard */; };
-		FA9EB67428095E6200AC80F3 /* AllGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB67328095E6200AC80F3 /* AllGroups.swift */; };
-		FA9EB67628095E8D00AC80F3 /* GroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB67528095E8D00AC80F3 /* GroupsCell.swift */; };
-		FA9EB67A2809B9ED00AC80F3 /* NotMyGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB6792809B9ED00AC80F3 /* NotMyGroupsController.swift */; };
-		FA9EB67C2809BD6400AC80F3 /* NoMyGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB67B2809BD6400AC80F3 /* NoMyGroupCell.swift */; };
+		FA9EB67428095E6200AC80F3 /* MyGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB67328095E6200AC80F3 /* MyGroupsController.swift */; };
+		FA9EB67628095E8D00AC80F3 /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB67528095E8D00AC80F3 /* MyGroupsCell.swift */; };
+		FA9EB67A2809B9ED00AC80F3 /* AllGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB6792809B9ED00AC80F3 /* AllGroupsController.swift */; };
+		FA9EB67C2809BD6400AC80F3 /* AllGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB67B2809BD6400AC80F3 /* AllGroupCell.swift */; };
 		FAA4D463280A036200BDDB17 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4D462280A036200BDDB17 /* FriendsTableViewCell.swift */; };
 		FAB6E18A283E767D00731E5A /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E189283E767D00731E5A /* CustomNavigationController.swift */; };
 		FAB6E18C283E97B000731E5A /* Push&PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E18B283E97B000731E5A /* Push&PopAnimator.swift */; };
 		FAB6E1C22842AA4900731E5A /* SessionSinglton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */; };
 		FABF521328474D4500B66296 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF521228474D4500B66296 /* LoginViewController.swift */; };
+		FAC296F82858C54600AE792F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC296F72858C54600AE792F /* Constants.swift */; };
 		FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CC280EB87800FA2A0E /* Model.swift */; };
 		FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */; };
 		FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */; };
@@ -55,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		0BDF41ED9619F4086A314325 /* Pods-Pozolotina_VK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pozolotina_VK.release.xcconfig"; path = "Target Support Files/Pods-Pozolotina_VK/Pods-Pozolotina_VK.release.xcconfig"; sourceTree = "<group>"; };
+		218C571A0B8FA86129227649 /* Pods_Pozolotina_VK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pozolotina_VK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C7093F622916E1AE4A1820 /* Pods-Pozolotina_VK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pozolotina_VK.debug.xcconfig"; path = "Target Support Files/Pods-Pozolotina_VK/Pods-Pozolotina_VK.debug.xcconfig"; sourceTree = "<group>"; };
 		F7BE13AE28180A13006950E7 /* AvatarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarsView.swift; sourceTree = "<group>"; };
 		FA1742FA284CA0ED00341868 /* FriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendService.swift; sourceTree = "<group>"; };
@@ -86,15 +89,16 @@
 		FA9EB6672804676200AC80F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9EB66A2804676200AC80F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9EB66C2804676200AC80F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA9EB67328095E6200AC80F3 /* AllGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroups.swift; sourceTree = "<group>"; };
-		FA9EB67528095E8D00AC80F3 /* GroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCell.swift; sourceTree = "<group>"; };
-		FA9EB6792809B9ED00AC80F3 /* NotMyGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotMyGroupsController.swift; sourceTree = "<group>"; };
-		FA9EB67B2809BD6400AC80F3 /* NoMyGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMyGroupCell.swift; sourceTree = "<group>"; };
+		FA9EB67328095E6200AC80F3 /* MyGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsController.swift; sourceTree = "<group>"; };
+		FA9EB67528095E8D00AC80F3 /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
+		FA9EB6792809B9ED00AC80F3 /* AllGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsController.swift; sourceTree = "<group>"; };
+		FA9EB67B2809BD6400AC80F3 /* AllGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupCell.swift; sourceTree = "<group>"; };
 		FAA4D462280A036200BDDB17 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		FAB6E189283E767D00731E5A /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FAB6E18B283E97B000731E5A /* Push&PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Push&PopAnimator.swift"; sourceTree = "<group>"; };
 		FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSinglton.swift; sourceTree = "<group>"; };
 		FABF521228474D4500B66296 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FAC296F72858C54600AE792F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAC5F1CC280EB87800FA2A0E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avatarUIView.swift; sourceTree = "<group>"; };
 		FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
@@ -109,12 +113,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323759D7C043510B87D6FA51 /* Pods_Pozolotina_VK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46EDAE5AF12F5DE9159251CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				218C571A0B8FA86129227649 /* Pods_Pozolotina_VK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E0C6CD11F916FD28C9531BB1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,8 +295,8 @@
 		FA17431A284FE2FA00341868 /* View+PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				FA9EB67328095E6200AC80F3 /* AllGroups.swift */,
-				FA9EB67528095E8D00AC80F3 /* GroupsCell.swift */,
+				FA9EB67328095E6200AC80F3 /* MyGroupsController.swift */,
+				FA9EB67528095E8D00AC80F3 /* MyGroupsCell.swift */,
 			);
 			path = "View+PresentationLayer";
 			sourceTree = "<group>";
@@ -291,18 +304,18 @@
 		FA17431B284FE35700341868 /* View+PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				FA9EB6792809B9ED00AC80F3 /* NotMyGroupsController.swift */,
-				FA9EB67B2809BD6400AC80F3 /* NoMyGroupCell.swift */,
+				FA9EB6792809B9ED00AC80F3 /* AllGroupsController.swift */,
+				FA9EB67B2809BD6400AC80F3 /* AllGroupCell.swift */,
 			);
 			path = "View+PresentationLayer";
 			sourceTree = "<group>";
 		};
-		FA17431C284FE37100341868 /* NotMyGroupYetService */ = {
+		FA17431C284FE37100341868 /* AllGroupsService */ = {
 			isa = PBXGroup;
 			children = (
 				FA174303284CAB1800341868 /* SearchGroupService.swift */,
 			);
-			path = NotMyGroupYetService;
+			path = AllGroupsService;
 			sourceTree = "<group>";
 		};
 		FA3712AF2818817D007D9423 /* NewsScene */ = {
@@ -330,6 +343,7 @@
 				FA9EB65D2804676200AC80F3 /* Pozolotina_VK */,
 				FA9EB65C2804676200AC80F3 /* Products */,
 				E0C6CD11F916FD28C9531BB1 /* Pods */,
+				46EDAE5AF12F5DE9159251CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -344,6 +358,7 @@
 		FA9EB65D2804676200AC80F3 /* Pozolotina_VK */ = {
 			isa = PBXGroup;
 			children = (
+				FAC296F62858C52700AE792F /* Common */,
 				FA17430C284FCAB600341868 /* Extensions */,
 				FABF521128474C8000B66296 /* LoginScene */,
 				FA1742FE284CA6F300341868 /* Session */,
@@ -368,18 +383,18 @@
 			children = (
 				FA17431A284FE2FA00341868 /* View+PresentationLayer */,
 				FA174317284FE07D00341868 /* GroupService */,
-				FA9EB6782809B95D00AC80F3 /* NotMyGroupYetScene */,
+				FA9EB6782809B95D00AC80F3 /* AllGroupScene */,
 			);
 			path = GroupScene;
 			sourceTree = "<group>";
 		};
-		FA9EB6782809B95D00AC80F3 /* NotMyGroupYetScene */ = {
+		FA9EB6782809B95D00AC80F3 /* AllGroupScene */ = {
 			isa = PBXGroup;
 			children = (
 				FA17431B284FE35700341868 /* View+PresentationLayer */,
-				FA17431C284FE37100341868 /* NotMyGroupYetService */,
+				FA17431C284FE37100341868 /* AllGroupsService */,
 			);
-			path = NotMyGroupYetScene;
+			path = AllGroupScene;
 			sourceTree = "<group>";
 		};
 		FAB6E188283E765600731E5A /* SegueAnimation */ = {
@@ -397,6 +412,14 @@
 				FABF521228474D4500B66296 /* LoginViewController.swift */,
 			);
 			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		FAC296F62858C52700AE792F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FAC296F72858C54600AE792F /* Constants.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		FAF81FF92809E8C400E74BB4 /* FriendsScene */ = {
@@ -526,13 +549,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3712AC2811C9A7007D9423 /* ViewController.swift in Sources */,
-				FA9EB67628095E8D00AC80F3 /* GroupsCell.swift in Sources */,
+				FA9EB67628095E8D00AC80F3 /* MyGroupsCell.swift in Sources */,
 				FA3712B8281966CB007D9423 /* MyCustomHeader.swift in Sources */,
 				FAA4D463280A036200BDDB17 /* FriendsTableViewCell.swift in Sources */,
 				FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */,
 				FA3712BF281AB817007D9423 /* MyCellForNews.swift in Sources */,
 				FA17430B284F8AD200341868 /* Group.swift in Sources */,
-				FA9EB67C2809BD6400AC80F3 /* NoMyGroupCell.swift in Sources */,
+				FA9EB67C2809BD6400AC80F3 /* AllGroupCell.swift in Sources */,
 				FAB6E18C283E97B000731E5A /* Push&PopAnimator.swift in Sources */,
 				FA3712FF28366EDC007D9423 /* cloudViewController.swift in Sources */,
 				FAB6E18A283E767D00731E5A /* CustomNavigationController.swift in Sources */,
@@ -549,12 +572,13 @@
 				FADC49AB280AE5090048E74F /* PhotoFriendsCoollectionVC.swift in Sources */,
 				FA174300284CA74B00341868 /* PhotoService.swift in Sources */,
 				FA9EB65F2804676200AC80F3 /* AppDelegate.swift in Sources */,
+				FAC296F82858C54600AE792F /* Constants.swift in Sources */,
 				FA1742FB284CA0ED00341868 /* FriendService.swift in Sources */,
 				FA174309284F43DE00341868 /* Photos.swift in Sources */,
 				FAB6E1C22842AA4900731E5A /* SessionSinglton.swift in Sources */,
 				FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */,
 				F7BE13AF28180A13006950E7 /* AvatarsView.swift in Sources */,
-				FA9EB67A2809B9ED00AC80F3 /* NotMyGroupsController.swift in Sources */,
+				FA9EB67A2809B9ED00AC80F3 /* AllGroupsController.swift in Sources */,
 				FA3712C1281AB9A0007D9423 /* CommentTableView.swift in Sources */,
 				FA174304284CAB1800341868 /* SearchGroupService.swift in Sources */,
 				FA3712B3281885D6007D9423 /* NewsTableVC.swift in Sources */,
@@ -562,7 +586,7 @@
 				FA9EB6612804676200AC80F3 /* SceneDelegate.swift in Sources */,
 				FA17430E284FCADB00341868 /* extensions.swift in Sources */,
 				FAF81FFD2809E92100E74BB4 /* FriendsController.swift in Sources */,
-				FA9EB67428095E6200AC80F3 /* AllGroups.swift in Sources */,
+				FA9EB67428095E6200AC80F3 /* MyGroupsController.swift in Sources */,
 				FA3712C3281B05CE007D9423 /* CommentCell.swift in Sources */,
 				FA3712EF282D41DF007D9423 /* swipeViewController.swift in Sources */,
 			);

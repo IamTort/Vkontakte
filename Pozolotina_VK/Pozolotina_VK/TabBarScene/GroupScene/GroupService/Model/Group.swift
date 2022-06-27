@@ -5,21 +5,29 @@
 //  Created by angelina on 07.06.2022.
 //
 
-import Foundation
+import UIKit
+import RealmSwift
 
-struct Resp: Decodable {
-    let response: ResponseGroup
+/// Отклик
+struct ResponseGroup: Decodable {
+    let response: ItemsGroup
 }
 
-struct ResponseGroup: Decodable {
+/// Модель групп
+struct ItemsGroup: Decodable {
+    /// Массив групп
     let items: [Groups]
 }
 
-struct Groups: Decodable {
-    let id: Int
-    let name: String
-    let image: String
-    
+/// Модель группы
+class Groups: Object, Decodable {
+    /// Идентификатор
+    @objc dynamic var id: Int = 0
+    /// Имя группы
+    @objc dynamic var name: String = ""
+    /// Аватарка группы
+    @objc dynamic var image: String = ""
+     
     enum CodingKeys: String, CodingKey {
         case id
         case name

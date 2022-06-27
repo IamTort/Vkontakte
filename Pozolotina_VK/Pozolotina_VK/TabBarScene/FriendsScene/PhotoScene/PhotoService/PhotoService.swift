@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// Класс, отвечающий за загрузку даннных с сервера на контроллер "Фото"
 final class PhotoService {
 
     private let session: URLSession = {
@@ -16,23 +18,15 @@ final class PhotoService {
     
     
     func loadPhotos(for id: String, completion: @escaping ([Sizes]) -> Void){
-        
+        //проверка на наличие токена
         guard let token = SessionSinglton.instance.token else { return }
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        //получаем все мои фото по данному методу
-        urlComponents.path = "/method/photos.getAll"
-        urlComponents.queryItems = [
-            //если изменить owner_id то покажет фото выбранного друга
-            URLQueryItem(name: "owner_id", value: id),
-            URLQueryItem(name: "access_token", value: String(token)),
-            URLQueryItem(name: "v", value: "5.131"),
-            URLQueryItem(name: "extended", value: "1")
+        let params = [ "v": "5.131",
+                       "extended": "1",
+                       "owner_id": "\(id)"
         ]
-
-        guard let url = urlComponents.url else {return}
+        
+        let url: URL = .configureURL(token: token, typeMethod: "/method/photos.getAll", params: params)
         
         let request = URLRequest(url: url)
         print(request)
@@ -44,10 +38,10 @@ final class PhotoService {
             do {
                 let result = try JSONDecoder().decode(ResponsePhoto.self, from: data)
                 completion(result.response.items)
-                print(result)
             } catch {
                 print(error)
             }
         }.resume()
     }
 }
+

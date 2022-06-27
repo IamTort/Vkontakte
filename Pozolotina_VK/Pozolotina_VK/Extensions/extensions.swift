@@ -14,7 +14,7 @@ extension StringProtocol {
     }
 }
 
-
+///Расширение для добавления фоток по ссылке
 extension UIImageView {
     func loadImage(with url: String, placeHolder: UIImage? = nil) {
         self.image = nil
@@ -38,5 +38,30 @@ extension UIImageView {
                 }
             }.resume()
         }
+    }
+}
+
+
+///Paсширение для создания ссылки 
+extension URL {
+    static func configureURL(token: String,
+                               typeMethod: String,
+                               params: [String: String]) -> URL {
+        var queryItems: [URLQueryItem] = []
+        params.forEach { name, value in
+            //заполняем массив переданными в функцию параметрами(params)
+            queryItems.append(URLQueryItem(name: name, value: value))
+        }
+        //добавляем в массив токен доступа
+        queryItems.append(.init(name: "access_token", value: token))
+        
+        var components = URLComponents()
+        components.scheme = Constants.Service.scheme.rawValue
+        components.host = Constants.Service.host.rawValue
+        components.path = typeMethod
+        components.queryItems = queryItems
+        
+        guard let url = components.url else { fatalError("")}
+        return url
     }
 }

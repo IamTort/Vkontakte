@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoMyGroupCell: UITableViewCell {
+class AllGroupCell: UITableViewCell {
 
     
     @IBOutlet weak var availableGroupImageView: UIImageView!

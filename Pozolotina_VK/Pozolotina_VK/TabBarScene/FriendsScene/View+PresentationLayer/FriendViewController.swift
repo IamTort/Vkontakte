@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 /// Контроллер экрана сценария "Друзья"
 class FriendViewController: UITableViewController {
@@ -22,7 +23,7 @@ class FriendViewController: UITableViewController {
     ]
     
     let service = FriendService()
-    var userModel: Response?
+    var userModel = [UserDto?]()
     var filterFriends = [User]()
     var sortedFriendsDict: [Character: [User]] = [:]
     
@@ -112,7 +113,7 @@ class FriendViewController: UITableViewController {
         cell.friendsName.text = user.name
         
         if user.image != nil {
-            cell.friendsImageView.avatarImage.loadImage(with: user.image!)
+            cell.friendsImageView.avatarImage.loadImage(with: user.image)
         } else {
             cell.friendsImageView.avatarImage.image = avatarsFriendsList[0]
         }
@@ -152,10 +153,14 @@ private extension FriendViewController {
             case .success(let user):
                 DispatchQueue.main.async {
                     self.userModel = user
-                    //тут фильтруется и кладется в массив filtUsers
-                    self.allUsers = (self.userModel?.response.items
-                        .filter( { $0.firstName != "DELETED" } )
-                        .map( { User(image: $0.photoUri, name: $0.firstName + " " + $0.lastName, photos: nil, id: $0.id) } ))!
+                    //тут фильтруется и кладется в массив filtUser
+                    self.allUsers = self.userModel
+                        .filter( { $0?.firstName != "DELETED" } )
+                        .map({ user in
+                            User(name: (user?.firstName ?? "") + " " + (user?.lastName ?? "") , image: user?.photoUri, id: user?.id)
+                        })
+                                     
+                    //print("usermodel \(self.userModel)")
                     
                     self.sortedFriendsDict = self.sortedArray(array: self.allUsers)
                     
