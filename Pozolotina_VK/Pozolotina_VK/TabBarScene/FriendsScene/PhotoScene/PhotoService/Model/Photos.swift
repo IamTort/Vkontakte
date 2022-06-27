@@ -19,9 +19,9 @@ struct Items: Decodable {
 }
 
 ///Модель массива с размерами фото
-struct Sizes: Decodable {
+class Sizes: Object, Decodable {
     /// Массив с фотографиями
-    let sizes: [PhotoInfoDto]
+    var sizes = List<PhotoInfoDto>()
 }
 
 /// Модель фото друга

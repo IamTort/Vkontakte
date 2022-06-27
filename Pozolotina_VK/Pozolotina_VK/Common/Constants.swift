@@ -18,3 +18,9 @@ struct Constants {
         case host = "api.vk.com"
     }
 }
+
+enum ServiceError: Error {
+    case serviceUnvailable
+    case decodingError
+    case urlNotConfigure
+}

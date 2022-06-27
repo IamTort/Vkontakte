@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AllGroupsController: UITableViewController {
 
@@ -18,9 +19,9 @@ class AllGroupsController: UITableViewController {
     }
     
     let service = SearchGroupService()
-    var groupModel: ResponseGroup?
+    var groupModel: AvailableGroups?
     
-    var allGroups = [Groups]()
+    var allGroups = [AvailableGroups]()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -59,7 +60,7 @@ extension AllGroupsController: UISearchBarDelegate {
         if searchText.isEmpty {
         } else {
             
-            fetchGroups()
+            loadGroup()
         }
         tableView.reloadData()
     }
@@ -67,20 +68,45 @@ extension AllGroupsController: UISearchBarDelegate {
 
 //MARK: - Private
 private extension AllGroupsController {
-    func fetchGroups() {
-        service.loadSearchGroups(searchText: searchBar.text) { result in
-            switch result {
-            case .success(let group):
-                DispatchQueue.main.async {
-                    self.groupModel = group
-                    
-                    self.allGroups = group.response.items
-                    
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
+    
+    
+    func loadGroup() {
+        Task {
+            try await service.loadSearchGroups(searchText:searchBar.text)
+            await loadRealmData()
+            tableView.reloadData()
         }
     }
+    
+    func loadRealmData() async {
+        do {
+            let realmDB = try await Realm()
+            realmDB.objects(AvailableGroups.self)
+                .forEach { group in
+                    self.groupModel = group
+                    self.allGroups.append(group)
+                }
+        } catch let error as NSError {
+            print("Realm Objects Error: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+//    func fetchGroups() {
+//        service.loadSearchGroups(searchText: searchBar.text) { result in
+//            switch result {
+//            case .success(let group):
+//                DispatchQueue.main.async {
+//                    self.groupModel = group
+//
+//                    self.allGroups = group.response.items
+//
+//                    self.tableView.reloadData()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
 }

@@ -1,26 +1,26 @@
 //
-//  Group.swift
+//  AvailableGroups.swift
 //  Pozolotina_VK
 //
-//  Created by angelina on 07.06.2022.
+//  Created by angelina on 24.06.2022.
 //
 
 import UIKit
 import RealmSwift
 
 /// Отклик
-struct ResponseGroup: Decodable {
-    let response: ItemsGroup
+struct ResponseAvailableGroup: Decodable {
+    let response: ItemsAvailableGroup
 }
 
 /// Модель групп
-struct ItemsGroup: Decodable {
+struct ItemsAvailableGroup: Decodable {
     /// Массив групп
-    let items: [Groups]
+    let items: [AvailableGroups]
 }
 
 /// Модель группы
-class Groups: Object, Decodable {
+class AvailableGroups: Object, Decodable {
     /// Идентификатор
     @objc dynamic var id: Int = 0
     /// Имя группы
@@ -34,20 +34,9 @@ class Groups: Object, Decodable {
         case image = "photo_50"
     }
     
-    override init() {
-        
-    }
-    
-    required init(availableGroup: AvailableGroups) {
-        
-        self.id = availableGroup.id
-        self.name = availableGroup.name
-        self.image = availableGroup.image
-        
-    }
     //уникальный ключ по которому можно проверять объекты и добавлять или удалять их
     override class func primaryKey() -> String? {
         "id"
     }
 }
- 
+
