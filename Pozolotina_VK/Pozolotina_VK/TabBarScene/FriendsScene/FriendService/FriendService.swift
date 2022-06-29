@@ -59,6 +59,7 @@ extension FriendService {
                 try realm.write {
                     // кладем все объекты класса UserDto в хранилище Realm
                     realm.add(users, update: .modified)
+                    //realm.deleteAll()
                 }
                 //если произошла ошибка, выводим в консоль
             } catch let error {
