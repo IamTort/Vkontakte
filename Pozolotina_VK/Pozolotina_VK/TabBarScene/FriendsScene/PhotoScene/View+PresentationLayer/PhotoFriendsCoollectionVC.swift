@@ -82,9 +82,9 @@ private extension PhotoFriendsCoollectionVC {
                     arrayOfAllSizes.append(Sizes)
                 }
 //            НУЖНА ПОМОЩЬ: не могу повторить как было в fetchPhoto
-            if let imagesLinks = self.sortImage(type: "z", array: arrayOfAllSizes) {
-                self.storedImages = imagesLinks
-            }
+//            if let imagesLinks = self.sortImage(type: "z", array: arrayOfAllSizes) {
+//                self.storedImages = imagesLinks
+//            }
         //если произошла ошибка, выводим в консоль
         } catch let error as NSError {
             print("Realm Objects Error: \(error.localizedDescription)")

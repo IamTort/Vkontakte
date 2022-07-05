@@ -30,14 +30,24 @@ class MyGroupsController: UITableViewController {
     var groupModel = [Groups?]()
     var myGroups = [Groups]()
     
+    //
+    private let realmService = RealmCacheService()
+//    это база реалм и мы достаем из нее данные
+    private var groupResponse: Results<Groups>? {
+        realmService.read(Groups.self)
+    }
+    //токен, который генерируется при подписке на обновление
+    private var token: NotificationToken?
+    
         
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        createNotificationToken()
         loadGroup()
     }
     
-        //обновляет страницу при добавлении группы
+        //обновляет страницу при добавлении группы, стало не актуально после 7го урока
     override func viewWillAppear(_ animated: Bool) {
         //filteredGroups = myGroups
         tableView.reloadData()
@@ -51,7 +61,7 @@ class MyGroupsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return filteredGroups.count
+        return groupResponse?.count ?? 0
     }
 
     
@@ -60,44 +70,22 @@ class MyGroupsController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as? MyGroupsCell else {
             preconditionFailure("Error")
         }
-
-        // устанавливаем группу в надпись ячейки
-        cell.groupName.text = filteredGroups[indexPath.row].name
-        cell.groupImageView.loadImage(with: filteredGroups[indexPath.row].image)
-        
-        return cell
-    }
-    
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
-        // Проверяем идентификатор, чтобы убедиться, что это нужный переход
-        if segue.identifier == "addGroup" {
-        // Получаем ссылку на контроллер, с которого осуществлен переход
-           if let notMyGroupsController = segue.source as? AllGroupsController,
-                // Получаем индекс выделенной ячейки
-            let indexPath = notMyGroupsController.tableView.indexPathForSelectedRow {
-               // Получаем группу по индексу
-               let group = notMyGroupsController.allGroups[indexPath.row]
-                    // Проверяем, что такой группы нет в списке
-               if !myGroups.contains(where: {$0.name == group.name}) {
-                   
-                // Добавляем группу в список выбранных групп
-                   myGroups.append(.init(availableGroup: group))
-                
-                // Обновляем таблицу
-                   tableView.reloadData()
-                }
-            }
+        //если данные реалм не пустые, то мы их отображаем в таблице
+        if let groups = groupResponse {
+            cell.groupName.text = groups[indexPath.row].name
+            cell.groupImageView.loadImage(with: groups[indexPath.row].image)
         }
+        return cell
     }
    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            let group = myGroups[indexPath.row]
+            let group = filteredGroups[indexPath.row]
             
             //удаляем группу
             
-            myGroups.removeAll() {$0.name == group.name}
+            filteredGroups.removeAll() {$0.name == group.name}
             
             self.searchBar(searchBar, textDidChange: searchBar.text ?? "")
         }  
@@ -112,24 +100,59 @@ class MyGroupsController: UITableViewController {
 //MARK: - UISearchBarDelegate
 extension MyGroupsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+//        пока не работает из-за замены массива из которого отображаются данные
         if searchText.isEmpty {
-            
             filteredGroups = myGroups
         } else {
-            
             filteredGroups = myGroups.filter{$0.name.lowercased().contains(searchText.lowercased()) }
         }
         tableView.reloadData()
     }
 }
 
+extension MyGroupsController: AddGroupDelegate {
+    func addGroup(id: Int) {}
+}
+
 //MARK: - Private
 private extension MyGroupsController {
-   
+    //отслеживает изменения?
+    func createNotificationToken() {
+//        объявляем токен
+        token = groupResponse?.observe{ [weak self] result in
+            guard let self = self else { return }
+            switch result {
+//                что происходит при инициализации
+            case .initial(let groupsData):
+                print("DBG token", groupsData.count)
+//                обновление(удалени, добавление, изменение)
+            case .update(let groups,
+                         deletions: let deletions,
+                         insertions: let insertions,
+                         modifications: let modifications):
+                let deletionsIndexPath = deletions.map { IndexPath(row: $0, section: 0) }
+                let insertionsIndexPath = insertions.map { IndexPath(row: $0, section: 0) }
+                let modificationsIndexPath = modifications.map { IndexPath(row: $0, section: 0) }
+                DispatchQueue.main.async {
+                    self.tableView.beginUpdates()
+                    self.tableView.deleteRows(at: deletionsIndexPath, with: .automatic)
+                    self.tableView.insertRows(at: insertionsIndexPath, with: .automatic)
+                    self.tableView.reloadRows(at: modificationsIndexPath, with: .automatic)
+                    self.tableView.endUpdates()
+                }
+//                ошибка
+            case .error(let error):
+                print("DBG token Error", error)
+            }
+        }
+    }
+    
+//    метод загрузки инфы с сервера в реалм и обновление вью
     func loadGroup() {
         Task {
+//            загружаем данные с сервера
             try await service.loadGroups()
+//            ждем пока данные из реалма загрузятся в местные массивы
             await loadRealmData()
             tableView.reloadData()
         }
@@ -147,23 +170,4 @@ private extension MyGroupsController {
             print("Realm Objects Error: \(error.localizedDescription)")
         }
     }
-//    стало не нужно после добавления Реалма
-//    func fetchGroups() {
-//        service.loadGroups() { in
-//            switch result {
-//            case .success(let group):
-//                DispatchQueue.main.async {
-//                    self.groupModel = group
-//
-//                    self.myGroups = self.groupModel?.response.items ?? []
-//
-//                    self.filteredGroups = self.myGroups
-//
-//                    self.tableView.reloadData()
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
 }

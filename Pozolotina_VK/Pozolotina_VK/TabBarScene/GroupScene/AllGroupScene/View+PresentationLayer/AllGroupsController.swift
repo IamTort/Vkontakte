@@ -8,20 +8,27 @@
 import UIKit
 import RealmSwift
 
+
+protocol AddGroupDelegate: AnyObject {
+    func addGroup(id: Int)
+}
+
+
 class AllGroupsController: UITableViewController {
 
-    
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
-            
         }
     }
+//    чтоб добраться для методов класса сервис, создаем экземпляр класса
+    let service = GroupService()
+// в этот массив добавляются группы по методу серчбар и этот массив отображается во вью
+    private var filteredGroups: [Groups] = []
+// ссылка на экземпляр класса
+    private let realmService = RealmCacheService()
     
-    let service = SearchGroupService()
-    var groupModel: AvailableGroups?
-    
-    var allGroups = [AvailableGroups]()
+    weak var delegate: AddGroupDelegate?
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -37,7 +44,26 @@ class AllGroupsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return allGroups.count
+        //return allGroups.count
+        return filteredGroups.count
+    }
+//    метод, кот инициирует добавление глобальной группы в мои группы
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = filteredGroups[indexPath.row].id
+        let group = filteredGroups[indexPath.row]
+        delegate?.addGroup(id: id)
+        service.addGroup(id: id) { result in
+            switch result {
+            case .success(let join):
+                if join.response == 1 {
+                self.realmService.create(group)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+//        переходим на контроллер назад
+        navigationController?.popViewController(animated: true)
     }
 
     
@@ -45,8 +71,8 @@ class AllGroupsController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoMyGroup", for: indexPath) as! AllGroupCell
         
-        cell.groupName.text = allGroups[indexPath.row].name
-        cell.availableGroupImageView.loadImage(with: allGroups[indexPath.row].image)
+        cell.groupName.text = filteredGroups[indexPath.row].name
+        cell.availableGroupImageView.loadImage(with: filteredGroups[indexPath.row].image)
 
         return cell
     }
@@ -55,58 +81,46 @@ class AllGroupsController: UITableViewController {
 
 //MARK: - UISearchBarDelegate
 extension AllGroupsController: UISearchBarDelegate {
+//    поиск по строке ввода
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText.isEmpty {
-        } else {
-            
-            loadGroup()
+        let text = searchText.isEmpty ? " ": searchText
+        filteredGroups = []
+        service.loadSearchGroups(searchText: text) { [weak self] result in
+            switch result {
+            case .success(let groups):
+                self?.filteredGroups = groups
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
-        tableView.reloadData()
     }
 }
-
+//не нужно потому, что нам не удобно сохранять в реалм все группы, что мы ищем
 //MARK: - Private
-private extension AllGroupsController {
-    
-    
-    func loadGroup() {
-        Task {
-            try await service.loadSearchGroups(searchText:searchBar.text)
-            await loadRealmData()
-            tableView.reloadData()
-        }
-    }
-    
-    func loadRealmData() async {
-        do {
-            let realmDB = try await Realm()
-            realmDB.objects(AvailableGroups.self)
-                .forEach { group in
-                    self.groupModel = group
-                    self.allGroups.append(group)
-                }
-        } catch let error as NSError {
-            print("Realm Objects Error: \(error.localizedDescription)")
-        }
-    }
-    
-    
-    
-//    func fetchGroups() {
-//        service.loadSearchGroups(searchText: searchBar.text) { result in
-//            switch result {
-//            case .success(let group):
-//                DispatchQueue.main.async {
-//                    self.groupModel = group
+//private extension AllGroupsController {
 //
-//                    self.allGroups = group.response.items
-//
-//                    self.tableView.reloadData()
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
+//    func loadGroup() {
+//        Task {
+//            try await service.loadSearchGroups(searchText: searchBar.text)
+//            await loadRealmData()
+//            tableView.reloadData()
 //        }
 //    }
-}
+//
+//    func loadRealmData() async {
+//        do {
+//            let realmDB = try await Realm()
+//            realmDB.objects(AvailableGroups.self)
+//                .forEach { group in
+//                    self.groupModel = group
+//                    self.allGroups.append(group)
+//                }
+//        } catch let error as NSError {
+//            print("Realm Objects Error: \(error.localizedDescription)")
+//        }
+//    }
+//}
