@@ -18,17 +18,21 @@ extension StringProtocol {
 extension UIImageView {
     func loadImage(with url: String, placeHolder: UIImage? = nil) {
         self.image = nil
-        
+//        конфигурация урла
         let iconUrl = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        
+//        проверка урла на валидность, разворачиваем из опционала
         if let url = URL(string: iconUrl) {
+//      выделяем новый поток для выполнения кода ниже
             URLSession.shared.dataTask(with: url) { data, response, error in
+//                если выкинуло ошибку
                 if error != nil {
+//                возвращаемся в главный поток, чтоб изменить элемент интерфейса
                     DispatchQueue.main.async {
                         self.image = placeHolder
                     }
                     return
                 }
+//                если всё прошло хорошо и данные получены
                 DispatchQueue.main.async {
                     if let data = data {
                         if let image = UIImage(data: data) {

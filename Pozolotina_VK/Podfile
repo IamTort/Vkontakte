@@ -6,6 +6,9 @@ target 'Pozolotina_VK' do
   use_frameworks!
 
   pod 'RealmSwift'
+  pod 'Firebase/Core'
+  pod 'FirebaseFirestore'
+  pod 'Firebase/Database'
 
 
 end

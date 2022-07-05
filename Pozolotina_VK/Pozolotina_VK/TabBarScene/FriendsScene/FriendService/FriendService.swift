@@ -36,9 +36,9 @@ final class FriendService {
 //получаем данные после запроса
             let (data, _) = try await session.data(for: request)
             //print(String(data: data, encoding: .utf8))
-
+//проинициализировали декодер
             let decoder = JSONDecoder()
-//        раскодируем данные
+//        раскодируем данные. раскидываем их по модели
             let result = try decoder.decode(ResponseFriend.self, from: data)
             await saveUserData(users: result.response.items)
         }
