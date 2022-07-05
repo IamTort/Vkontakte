@@ -18,10 +18,6 @@ class UserDto: Object, Decodable {
     @objc dynamic var firstName: String = ""
     ///Фамилия
     @objc dynamic var lastName: String = ""
-
-//    convenience required init(json: JSON) {
-//        <#code#>
-//    }
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -29,12 +25,16 @@ class UserDto: Object, Decodable {
         case firstName = "first_name"
         case lastName = "last_name"
     }
+    
+    override class func primaryKey() -> String? {
+        "id"
+    }
 }
 
 ///Модель кол-ва друзей и их массив
 struct ItemsFriend: Decodable {
-    var count: Int
-    var items: [UserDto]
+    let count: Int
+    let items: [UserDto]
     
 }
 

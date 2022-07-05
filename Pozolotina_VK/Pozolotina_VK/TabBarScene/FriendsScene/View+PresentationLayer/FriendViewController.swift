@@ -35,7 +35,7 @@ class FriendViewController: UITableViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUser()
+        loadUser()
     }
     
     // Здесь создаешь массив из начальных букв юзеров
@@ -112,7 +112,7 @@ class FriendViewController: UITableViewController {
         
         cell.friendsName.text = user.name
         
-        if user.image != nil {
+        if user.image != "" {
             cell.friendsImageView.avatarImage.loadImage(with: user.image)
         } else {
             cell.friendsImageView.avatarImage.image = avatarsFriendsList[0]
@@ -147,33 +147,68 @@ class FriendViewController: UITableViewController {
 
 //MARK: - Private
 private extension FriendViewController {
-    func fetchUser() {
-        service.loadUsers { result in
-            switch result {
-            case .success(let user):
-                DispatchQueue.main.async {
-                    self.userModel = user
-                    //тут фильтруется и кладется в массив filtUser
-                    self.allUsers = self.userModel
-                        .filter( { $0?.firstName != "DELETED" } )
-                        .map({ user in
-                            User(name: (user?.firstName ?? "") + " " + (user?.lastName ?? "") , image: user?.photoUri, id: user?.id)
-                        })
-                                     
-                    //print("usermodel \(self.userModel)")
-                    
-                    self.sortedFriendsDict = self.sortedArray(array: self.allUsers)
-                    
-                    self.searchList = self.allUsers.map({$0.name})
-                    self.sortCharacterOfNamesAlphabet()
-                    
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
+//   загрузка Друзей в вью
+    func loadUser() {
+        Task {
+//            ждем выполнение сервисного метода получения данных от сервера
+            try await service.loadUsers()
+//          ждем сохранения данных в реалм
+            await loadUserData()
+//            обновляем таблицу
+            tableView.reloadData()
         }
     }
+    
+    //метод сохранения данных в realm
+    func loadUserData() async {
+        // обработка исключений при работе с хранилищем
+        do {
+            // получаем доступ к хранилищу
+            let realmDB = try await Realm()
+//            сортируем данные в хранилище
+            realmDB.objects(UserDto.self)
+                .filter{ $0.firstName != "DELETED" }
+                .map { user in
+                    User(name: user.firstName + " " + user.lastName, image: user.photoUri, id: user.id)
+                }.forEach { user in
+                    self.allUsers.append(user)
+                    self.sortedFriendsDict = self.sortedArray(array: self.allUsers)
+                    self.searchList = self.allUsers.map({$0.name})
+                    self.sortCharacterOfNamesAlphabet()
+                }
+            //если произошла ошибка, выводим в консоль
+        } catch let error as NSError {
+            print("Realm Objects Error: \(error.localizedDescription)")
+        }
+    }
+    
+    
+//    func fetchUser() {
+//        service.loadUsers { result in
+//            switch result {
+//            case .success(let user):
+//                DispatchQueue.main.async {
+//                    self.userModel = user
+//                    //тут фильтруется и кладется в массив filtUser
+//                    self.allUsers = self.userModel
+//                        .filter( { $0?.firstName != "DELETED" } )
+//                        .map({ user in
+//                            User(name: (user?.firstName ?? "") + " " + (user?.lastName ?? "") , image: user?.photoUri, id: user?.id)
+//                        })
+//                    //print("usermodel \(self.userModel)")
+//                    
+//                    self.sortedFriendsDict = self.sortedArray(array: self.allUsers)
+//                    
+//                    self.searchList = self.allUsers.map({$0.name})
+//                    self.sortCharacterOfNamesAlphabet()
+//                    
+//                    self.tableView.reloadData()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
 }
 
 

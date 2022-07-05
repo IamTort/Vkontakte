@@ -46,6 +46,7 @@
 		FAB6E1C22842AA4900731E5A /* SessionSinglton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */; };
 		FABF521328474D4500B66296 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABF521228474D4500B66296 /* LoginViewController.swift */; };
 		FAC296F82858C54600AE792F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC296F72858C54600AE792F /* Constants.swift */; };
+		FAC297422865182200AE792F /* AvailableGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC297412865182200AE792F /* AvailableGroups.swift */; };
 		FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CC280EB87800FA2A0E /* Model.swift */; };
 		FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */; };
 		FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */; };
@@ -99,6 +100,7 @@
 		FAB6E1C12842AA4900731E5A /* SessionSinglton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSinglton.swift; sourceTree = "<group>"; };
 		FABF521228474D4500B66296 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FAC296F72858C54600AE792F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FAC297412865182200AE792F /* AvailableGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableGroups.swift; sourceTree = "<group>"; };
 		FAC5F1CC280EB87800FA2A0E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avatarUIView.swift; sourceTree = "<group>"; };
 		FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 		FA17431C284FE37100341868 /* AllGroupsService */ = {
 			isa = PBXGroup;
 			children = (
+				FAC29740286517FE00AE792F /* Model */,
 				FA174303284CAB1800341868 /* SearchGroupService.swift */,
 			);
 			path = AllGroupsService;
@@ -420,6 +423,14 @@
 				FAC296F72858C54600AE792F /* Constants.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		FAC29740286517FE00AE792F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAC297412865182200AE792F /* AvailableGroups.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FAF81FF92809E8C400E74BB4 /* FriendsScene */ = {
@@ -579,6 +590,7 @@
 				FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */,
 				F7BE13AF28180A13006950E7 /* AvatarsView.swift in Sources */,
 				FA9EB67A2809B9ED00AC80F3 /* AllGroupsController.swift in Sources */,
+				FAC297422865182200AE792F /* AvailableGroups.swift in Sources */,
 				FA3712C1281AB9A0007D9423 /* CommentTableView.swift in Sources */,
 				FA174304284CAB1800341868 /* SearchGroupService.swift in Sources */,
 				FA3712B3281885D6007D9423 /* NewsTableVC.swift in Sources */,

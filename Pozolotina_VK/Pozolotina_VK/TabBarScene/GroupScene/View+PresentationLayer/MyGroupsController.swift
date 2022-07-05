@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 /// Контроллер экрана сценария "Мои группы"
 class MyGroupsController: UITableViewController {
@@ -26,13 +27,14 @@ class MyGroupsController: UITableViewController {
     var filteredGroups = [Groups]()
     
     let service = GroupService()
-    var groupModel: ResponseGroup?
+    var groupModel = [Groups?]()
     var myGroups = [Groups]()
+    
         
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchGroups()
+        loadGroup()
     }
     
         //обновляет страницу при добавлении группы
@@ -77,9 +79,9 @@ class MyGroupsController: UITableViewController {
                let group = notMyGroupsController.allGroups[indexPath.row]
                     // Проверяем, что такой группы нет в списке
                if !myGroups.contains(where: {$0.name == group.name}) {
-                  
+                   
                 // Добавляем группу в список выбранных групп
-                   myGroups.append(group)
+                   myGroups.append(.init(availableGroup: group))
                 
                 // Обновляем таблицу
                    tableView.reloadData()
@@ -88,8 +90,6 @@ class MyGroupsController: UITableViewController {
         }
     }
    
-    
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
@@ -126,22 +126,44 @@ extension MyGroupsController: UISearchBarDelegate {
 
 //MARK: - Private
 private extension MyGroupsController {
-    func fetchGroups() {
-        service.loadGroups { result in
-            switch result {
-            case .success(let group):
-                DispatchQueue.main.async {
-                    self.groupModel = group
-                    
-                    self.myGroups = (self.groupModel?.response.items)!
-                    
-                    self.filteredGroups = self.myGroups
-                    
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
+   
+    func loadGroup() {
+        Task {
+            try await service.loadGroups()
+            await loadRealmData()
+            tableView.reloadData()
         }
     }
+    
+    func loadRealmData() async {
+        do {
+            let realmDB = try await Realm()
+            realmDB.objects(Groups.self)
+                .forEach { group in
+                    self.filteredGroups.append(group)
+                    self.myGroups.append(group)
+                }
+        } catch let error as NSError {
+            print("Realm Objects Error: \(error.localizedDescription)")
+        }
+    }
+//    стало не нужно после добавления Реалма
+//    func fetchGroups() {
+//        service.loadGroups() { in
+//            switch result {
+//            case .success(let group):
+//                DispatchQueue.main.async {
+//                    self.groupModel = group
+//
+//                    self.myGroups = self.groupModel?.response.items ?? []
+//
+//                    self.filteredGroups = self.myGroups
+//
+//                    self.tableView.reloadData()
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
 }
