@@ -58,6 +58,11 @@
 		FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */; };
 		FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */; };
 		FAC5F1D3280F3A4F00FA2A0E /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1D2280F3A4F00FA2A0E /* WeekDay.swift */; };
+		FACD04BD288FD56100F42391 /* AuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD04BC288FD56100F42391 /* AuthorCell.swift */; };
+		FACD04BF288FD58C00F42391 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD04BE288FD58C00F42391 /* TextCell.swift */; };
+		FACD04C1288FD5C100F42391 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD04C0288FD5C100F42391 /* ImageCell.swift */; };
+		FACD04C3288FD5E700F42391 /* LikeAndCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD04C2288FD5E700F42391 /* LikeAndCommentCell.swift */; };
+		FACD04C5288FDEDC00F42391 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD04C4288FDEDC00F42391 /* NewsController.swift */; };
 		FADC49AB280AE5090048E74F /* PhotoFriendsCoollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC49AA280AE5090048E74F /* PhotoFriendsCoollectionVC.swift */; };
 		FADC49AD280AE51E0048E74F /* PhotoCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC49AC280AE51E0048E74F /* PhotoCollectionVCell.swift */; };
 		FAF81FFD2809E92100E74BB4 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF81FFC2809E92100E74BB4 /* FriendsController.swift */; };
@@ -119,6 +124,11 @@
 		FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avatarUIView.swift; sourceTree = "<group>"; };
 		FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		FAC5F1D2280F3A4F00FA2A0E /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
+		FACD04BC288FD56100F42391 /* AuthorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorCell.swift; sourceTree = "<group>"; };
+		FACD04BE288FD58C00F42391 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		FACD04C0288FD5C100F42391 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		FACD04C2288FD5E700F42391 /* LikeAndCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAndCommentCell.swift; sourceTree = "<group>"; };
+		FACD04C4288FDEDC00F42391 /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		FADC49AA280AE5090048E74F /* PhotoFriendsCoollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFriendsCoollectionVC.swift; sourceTree = "<group>"; };
 		FADC49AC280AE51E0048E74F /* PhotoCollectionVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionVCell.swift; sourceTree = "<group>"; };
 		FAF81FFC2809E92100E74BB4 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 1; path = FriendsController.swift; sourceTree = "<group>"; };
@@ -342,6 +352,11 @@
 			children = (
 				FA3712B2281885D6007D9423 /* NewsTableVC.swift */,
 				FA3712B0281881B6007D9423 /* NewsTableViewCell.swift */,
+				FACD04C4288FDEDC00F42391 /* NewsController.swift */,
+				FACD04BC288FD56100F42391 /* AuthorCell.swift */,
+				FACD04BE288FD58C00F42391 /* TextCell.swift */,
+				FACD04C0288FD5C100F42391 /* ImageCell.swift */,
+				FACD04C2288FD5E700F42391 /* LikeAndCommentCell.swift */,
 				FA3712B9281AA0EC007D9423 /* CommentScene */,
 			);
 			path = NewsScene;
@@ -605,9 +620,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACD04BF288FD58C00F42391 /* TextCell.swift in Sources */,
 				FA3712AC2811C9A7007D9423 /* ViewController.swift in Sources */,
 				FA9EB67628095E8D00AC80F3 /* MyGroupsCell.swift in Sources */,
 				FA3712B8281966CB007D9423 /* MyCustomHeader.swift in Sources */,
+				FACD04C5288FDEDC00F42391 /* NewsController.swift in Sources */,
 				FAA4D463280A036200BDDB17 /* FriendsTableViewCell.swift in Sources */,
 				FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */,
 				FA3712BF281AB817007D9423 /* MyCellForNews.swift in Sources */,
@@ -621,13 +638,16 @@
 				FADC49AD280AE51E0048E74F /* PhotoCollectionVCell.swift in Sources */,
 				FABF521328474D4500B66296 /* LoginViewController.swift in Sources */,
 				FAC29744286B5CC500AE792F /* RealmCacheService.swift in Sources */,
+				FACD04BD288FD56100F42391 /* AuthorCell.swift in Sources */,
 				FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */,
 				FAC5F1D3280F3A4F00FA2A0E /* WeekDay.swift in Sources */,
 				FA3712E5281EC061007D9423 /* loadingPageViewController.swift in Sources */,
 				FA3712B1281881B6007D9423 /* NewsTableViewCell.swift in Sources */,
 				FA174306284CAEA600341868 /* User.swift in Sources */,
+				FACD04C1288FD5C100F42391 /* ImageCell.swift in Sources */,
 				FA3713012837E52C007D9423 /* FriendViewController.swift in Sources */,
 				FA174302284CA83100341868 /* GroupService.swift in Sources */,
+				FACD04C3288FD5E700F42391 /* LikeAndCommentCell.swift in Sources */,
 				FADC49AB280AE5090048E74F /* PhotoFriendsCoollectionVC.swift in Sources */,
 				FA174300284CA74B00341868 /* PhotoService.swift in Sources */,
 				FA9EB65F2804676200AC80F3 /* AppDelegate.swift in Sources */,

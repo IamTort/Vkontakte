@@ -36,8 +36,8 @@ struct News {
     let ava: UIImage
     let name: String
     let time: String
-    let text: String
-    let picture: UIImage
+    let text: String?
+    let picture: UIImage?
     let touches: Int
     let watches: Int
     
