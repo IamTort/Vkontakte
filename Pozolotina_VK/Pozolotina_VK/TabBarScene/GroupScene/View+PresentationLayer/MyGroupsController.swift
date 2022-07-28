@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import FirebaseDatabase
 
 /// Контроллер экрана сценария "Мои группы"
 class MyGroupsController: UITableViewController {
@@ -40,11 +41,25 @@ class MyGroupsController: UITableViewController {
     private var token: NotificationToken?
     
         
+    private var ref = Database.database().reference(withPath: "Communities")
+    private var firebaseCommunities: [FirebaseCommunities] = []
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         createNotificationToken()
         loadGroup()
+        ref.observe(.value, with: { snapshot in
+            var groups: [FirebaseCommunities] = []
+//просматриваем все дочернии снимки базы
+            snapshot.children.forEach { child in
+                if let snapshot = child as? DataSnapshot,
+                   let group = FirebaseCommunities(snapshot: snapshot) {
+                    groups.append(group)
+                }
+            }
+            groups.forEach { print($0.groupName) }
+        })
     }
     
         //обновляет страницу при добавлении группы, стало не актуально после 7го урока
@@ -110,8 +125,13 @@ extension MyGroupsController: UISearchBarDelegate {
     }
 }
 
+//MARK: - AddGroupDelegate
 extension MyGroupsController: AddGroupDelegate {
-    func addGroup(id: Int) {}
+    func addGroup(id: Int, name: String) {
+        let communities = FirebaseCommunities(groupName: "", id: id)
+        let ref = self.ref.child(name.lowercased())
+        ref.setValue(communities.toAnyObject())
+    }
 }
 
 //MARK: - Private
@@ -125,6 +145,8 @@ private extension MyGroupsController {
 //                что происходит при инициализации
             case .initial(let groupsData):
                 print("DBG token", groupsData.count)
+//                тут можно установить значения в таблицу и обновить её
+
 //                обновление(удалени, добавление, изменение)
             case .update(let groups,
                          deletions: let deletions,

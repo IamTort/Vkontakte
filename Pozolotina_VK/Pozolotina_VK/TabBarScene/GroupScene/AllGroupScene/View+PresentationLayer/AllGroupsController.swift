@@ -10,9 +10,12 @@ import RealmSwift
 
 
 protocol AddGroupDelegate: AnyObject {
-    func addGroup(id: Int)
+    ///Добавить группу
+    /// - Parameters:
+    ///  - id: Идентификатор группы
+    ///  - name: Имя группы
+    func addGroup(id: Int, name: String)
 }
-
 
 class AllGroupsController: UITableViewController {
 
@@ -28,6 +31,7 @@ class AllGroupsController: UITableViewController {
 // ссылка на экземпляр класса
     private let realmService = RealmCacheService()
     
+    ///Делегат добавления группы
     weak var delegate: AddGroupDelegate?
     
     //MARK: - LifeCycle
@@ -51,7 +55,7 @@ class AllGroupsController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = filteredGroups[indexPath.row].id
         let group = filteredGroups[indexPath.row]
-        delegate?.addGroup(id: id)
+        delegate?.addGroup(id: id, name: group.name)
         service.addGroup(id: id) { result in
             switch result {
             case .success(let join):

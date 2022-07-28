@@ -49,6 +49,11 @@
 		FAC297422865182200AE792F /* AvailableGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC297412865182200AE792F /* AvailableGroups.swift */; };
 		FAC29744286B5CC500AE792F /* RealmCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC29743286B5CC500AE792F /* RealmCacheService.swift */; };
 		FAC29746286C67CC00AE792F /* JoinOrLeaveGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC29745286C67CC00AE792F /* JoinOrLeaveGroup.swift */; };
+		FAC29748286E050E00AE792F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAC29747286E050E00AE792F /* GoogleService-Info.plist */; };
+		FAC2974A286E0C7200AE792F /* FirebaseCommunities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC29749286E0C7200AE792F /* FirebaseCommunities.swift */; };
+		FAC2974D2872D59D00AE792F /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2974C2872D59D00AE792F /* ImageCacheService.swift */; };
+		FAC297512872DA5B00AE792F /* ImageLoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC297502872DA5B00AE792F /* ImageLoaderHelper.swift */; };
+		FAC297532872DAB900AE792F /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC297522872DAB900AE792F /* ImageLoaderService.swift */; };
 		FAC5F1CD280EB87800FA2A0E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CC280EB87800FA2A0E /* Model.swift */; };
 		FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */; };
 		FAC5F1D1280EFB6D00FA2A0E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */; };
@@ -105,6 +110,11 @@
 		FAC297412865182200AE792F /* AvailableGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableGroups.swift; sourceTree = "<group>"; };
 		FAC29743286B5CC500AE792F /* RealmCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCacheService.swift; sourceTree = "<group>"; };
 		FAC29745286C67CC00AE792F /* JoinOrLeaveGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinOrLeaveGroup.swift; sourceTree = "<group>"; };
+		FAC29747286E050E00AE792F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAC29749286E0C7200AE792F /* FirebaseCommunities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCommunities.swift; sourceTree = "<group>"; };
+		FAC2974C2872D59D00AE792F /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
+		FAC297502872DA5B00AE792F /* ImageLoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderHelper.swift; sourceTree = "<group>"; };
+		FAC297522872DAB900AE792F /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 		FAC5F1CC280EB87800FA2A0E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FAC5F1CE280EE5E600FA2A0E /* avatarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avatarUIView.swift; sourceTree = "<group>"; };
 		FAC5F1D0280EFB6D00FA2A0E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
@@ -277,6 +287,7 @@
 			children = (
 				FA174318284FE09500341868 /* Model */,
 				FA174301284CA83100341868 /* GroupService.swift */,
+				FAC29749286E0C7200AE792F /* FirebaseCommunities.swift */,
 			);
 			path = GroupService;
 			sourceTree = "<group>";
@@ -379,6 +390,7 @@
 				FA9EB6642804676200AC80F3 /* Main.storyboard */,
 				FA9EB6672804676200AC80F3 /* Assets.xcassets */,
 				FA9EB6692804676200AC80F3 /* LaunchScreen.storyboard */,
+				FAC29747286E050E00AE792F /* GoogleService-Info.plist */,
 				FA9EB66C2804676200AC80F3 /* Info.plist */,
 				FA3712E4281EC061007D9423 /* loadingPageViewController.swift */,
 				FA3712FE28366EDC007D9423 /* cloudViewController.swift */,
@@ -425,6 +437,7 @@
 		FAC296F62858C52700AE792F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FAC297542872E43600AE792F /* UI */,
 				FAC296F72858C54600AE792F /* Constants.swift */,
 				FAC29743286B5CC500AE792F /* RealmCacheService.swift */,
 			);
@@ -437,6 +450,32 @@
 				FAC297412865182200AE792F /* AvailableGroups.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FAC2974B2872D58200AE792F /* ImageCacheService */ = {
+			isa = PBXGroup;
+			children = (
+				FAC2974C2872D59D00AE792F /* ImageCacheService.swift */,
+			);
+			path = ImageCacheService;
+			sourceTree = "<group>";
+		};
+		FAC2974F2872DA3A00AE792F /* ImageLoaderHelper */ = {
+			isa = PBXGroup;
+			children = (
+				FAC297502872DA5B00AE792F /* ImageLoaderHelper.swift */,
+				FAC297522872DAB900AE792F /* ImageLoaderService.swift */,
+			);
+			path = ImageLoaderHelper;
+			sourceTree = "<group>";
+		};
+		FAC297542872E43600AE792F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FAC2974B2872D58200AE792F /* ImageCacheService */,
+				FAC2974F2872DA3A00AE792F /* ImageLoaderHelper */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		FAF81FF92809E8C400E74BB4 /* FriendsScene */ = {
@@ -511,6 +550,7 @@
 			files = (
 				FA3712BB281AA770007D9423 /* MyCellForNews.xib in Resources */,
 				FA9EB66B2804676200AC80F3 /* LaunchScreen.storyboard in Resources */,
+				FAC29748286E050E00AE792F /* GoogleService-Info.plist in Resources */,
 				FA9EB6682804676200AC80F3 /* Assets.xcassets in Resources */,
 				FA9EB6662804676200AC80F3 /* Main.storyboard in Resources */,
 			);
@@ -573,6 +613,7 @@
 				FA3712BF281AB817007D9423 /* MyCellForNews.swift in Sources */,
 				FA17430B284F8AD200341868 /* Group.swift in Sources */,
 				FA9EB67C2809BD6400AC80F3 /* AllGroupCell.swift in Sources */,
+				FAC2974D2872D59D00AE792F /* ImageCacheService.swift in Sources */,
 				FAB6E18C283E97B000731E5A /* Push&PopAnimator.swift in Sources */,
 				FA3712FF28366EDC007D9423 /* cloudViewController.swift in Sources */,
 				FAB6E18A283E767D00731E5A /* CustomNavigationController.swift in Sources */,
@@ -591,11 +632,14 @@
 				FA174300284CA74B00341868 /* PhotoService.swift in Sources */,
 				FA9EB65F2804676200AC80F3 /* AppDelegate.swift in Sources */,
 				FAC296F82858C54600AE792F /* Constants.swift in Sources */,
+				FAC297512872DA5B00AE792F /* ImageLoaderHelper.swift in Sources */,
 				FA1742FB284CA0ED00341868 /* FriendService.swift in Sources */,
 				FA174309284F43DE00341868 /* Photos.swift in Sources */,
+				FAC297532872DAB900AE792F /* ImageLoaderService.swift in Sources */,
 				FAB6E1C22842AA4900731E5A /* SessionSinglton.swift in Sources */,
 				FAC5F1CF280EE5E600FA2A0E /* avatarUIView.swift in Sources */,
 				F7BE13AF28180A13006950E7 /* AvatarsView.swift in Sources */,
+				FAC2974A286E0C7200AE792F /* FirebaseCommunities.swift in Sources */,
 				FA9EB67A2809B9ED00AC80F3 /* AllGroupsController.swift in Sources */,
 				FAC29746286C67CC00AE792F /* JoinOrLeaveGroup.swift in Sources */,
 				FAC297422865182200AE792F /* AvailableGroups.swift in Sources */,

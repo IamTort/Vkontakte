@@ -60,11 +60,11 @@ private extension PhotoFriendsCoollectionVC {
 //   загрузка фоток в вью
     func loadPhoto() {
         Task {
-            //            ждем выполнение сервисного метода получения данных от сервера
-            try await service.loadPhotos(for: friendId)
-            //          ждем сохранения данных в реалм
+            //  ждем выполнение сервисного метода получения данных от сервера
+            try await service.loadPhotos(for: friendId) 
+            //  ждем сохранения данных в реалм
             await loadPhotoData()
-            //            обновляем коллекцию
+            //  обновляем коллекцию
             collectionView.reloadData()
         }
     }
